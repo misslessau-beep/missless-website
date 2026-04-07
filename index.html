@@ -734,9 +734,7 @@ footer {
     var email = document.getElementById(source === 'cta' ? 'cta-email' : 'hero-email').value;
     if (!email) return;
 
-    // TODO: Replace YOUR_FORMSPREE_ID with your actual Formspree form ID
-    // Get your free ID at formspree.io — takes 2 minutes
-    var FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+    var FORMSPREE_ID = 'mjgplgnd';
 
     fetch('https://formspree.io/f/' + FORMSPREE_ID, {
       method: 'POST',
@@ -758,21 +756,19 @@ footer {
     });
   }
 
-  // ── Plan buttons — link to Stripe Payment Links ──────────────────────────
+  // ── Plan buttons — scroll to signup + show toast ─────────────────────────
   function handlePlan(plan) {
-    // TODO: Replace these with your actual Stripe Payment Links
-    var links = {
-      'essential':   'https://buy.stripe.com/YOUR_ESSENTIAL_LINK',
-      'family':      'https://buy.stripe.com/YOUR_FAMILY_LINK',
-      'unlimited':   'https://buy.stripe.com/YOUR_UNLIMITED_LINK',
-      'payg':        'https://buy.stripe.com/YOUR_PAYG_LINK',
-      'payg-single': 'https://buy.stripe.com/YOUR_PAYG_LINK'
+    var labels = {
+      'essential':   'Essential ($19/mo)',
+      'family':      'Family ($29/mo)',
+      'unlimited':   'Unlimited ($49/mo)',
+      'payg':        'Pay per card ($19.99)',
+      'payg-single': 'Pay per card ($19.99)'
     };
-    if (links[plan] && links[plan].indexOf('YOUR_') === -1) {
-      window.location.href = links[plan];
-    } else {
-      showToast('Coming soon — sign up above to be notified!');
-    }
+    showToast('Great choice! Sign up below and we\'ll get you started on ' + (labels[plan] || 'your plan') + '.');
+    setTimeout(function() {
+      document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+    }, 600);
   }
 
   // ── Toast ────────────────────────────────────────────────────────────────
