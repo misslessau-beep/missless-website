@@ -171,6 +171,7 @@ nav {
   font-size: 14px;
 }
 .hero-note { font-size: 12px; color: var(--ink3); display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-cta-btns { display: flex; gap: .8rem; flex-wrap: wrap; margin-bottom: .5rem; }
 .hero-note span::before { content: '✓ '; color: var(--green); }
 
 /* ── Hero visual ────────────────────────────────────────────────────────── */
@@ -549,7 +550,7 @@ footer {
   </ul>
   <div class="nav-cta">
     <button class="btn btn-outline">Log in</button>
-    <button class="btn btn-dark" onclick="scrollToSignup()">Get started</button>
+    <button class="btn btn-dark" onclick="scrollToPricing()">Get started</button>
   </div>
 </nav>
 
@@ -569,14 +570,19 @@ footer {
       <p class="hero-sub anim-3">
         Set up the people you love once. We design, print and post a beautiful, personalised card for every birthday, anniversary and special occasion — automatically. Postage always included.
       </p>
-      <form class="signup-form anim-4" onsubmit="handleSubmit(event, 'hero')">
-        <input type="email" id="hero-email" placeholder="Your email address" required/>
-        <button type="submit" class="btn btn-rose">Get started free</button>
-      </form>
-      <div class="hero-note anim-5">
-        <span>No credit card needed</span>
-        <span>Takes 30 seconds</span>
-        <span>Postage included</span>
+      <div class="hero-cta-btns anim-4">
+        <button class="btn btn-rose btn-lg" onclick="scrollToPricing()">See plans &amp; pricing →</button>
+        <button class="btn btn-outline btn-lg" onclick="showEmailForm()">Notify me when live</button>
+      </div>
+      <div class="email-form-wrap anim-5" id="email-form-wrap" style="display:none; margin-top:1rem;">
+        <form class="signup-form" onsubmit="handleSubmit(event, 'hero')">
+          <input type="email" id="hero-email" placeholder="Your email address" required/>
+          <button type="submit" class="btn btn-rose">Notify me</button>
+        </form>
+        <div class="hero-note" style="margin-top:.6rem;">
+          <span>No spam, ever</span>
+          <span>Unsubscribe any time</span>
+        </div>
       </div>
     </div>
     <div class="hero-visual">
@@ -635,18 +641,12 @@ footer {
     </div>
     <div class="showcase-grid">
       <div>
-        <div class="showcase-card-label">Outside cover</div>
+        <div class="showcase-card-label">Mother's Day Card — 2026</div>
         <div class="showcase-card-wrap">
-          <img src="mothers_day_card_cover.png" alt="Mother's Day card cover" class="showcase-card-img"/>
+          <img src="card_mockup.jpg" alt="Mother's Day card" class="showcase-card-img"/>
           <div class="showcase-card-badge">
-            <strong>Mother's Day — 2026</strong>
-            Printed &amp; posted · AU postage included
-          </div>
-        </div>
-        <div class="showcase-inside-wrap">
-          <div class="showcase-card-label" style="margin-top:1rem;">Inside spread</div>
-          <div class="showcase-card-wrap">
-            <img src="mothers_day_card_inside.png" alt="Mother's Day card inside" class="showcase-card-img"/>
+            <strong>Designed &amp; printed in Australia</strong>
+            AU postage always included
           </div>
         </div>
       </div>
@@ -862,10 +862,16 @@ footer {
 <section class="cta-section" id="signup">
   <h2>Never forget again.</h2>
   <p>Your email is all we need to get started. Add your first occasion in under a minute.</p>
-  <form class="cta-form" onsubmit="handleSubmit(event, 'cta')">
-    <input type="email" id="cta-email" placeholder="Your email address" required/>
-    <button type="submit">Start free →</button>
-  </form>
+  <div style="display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-bottom:1rem;">
+    <button class="btn btn-lg" style="background:white;color:var(--ink);border:none;font-size:15px;padding:.8rem 2rem;border-radius:8px;" onclick="scrollToPricing()">Choose a plan →</button>
+    <button class="btn btn-lg btn-outline" style="border-color:#444;color:#999;font-size:15px;padding:.8rem 2rem;border-radius:8px;" onclick="showCtaForm()">Just notify me</button>
+  </div>
+  <div id="cta-form-wrap" style="display:none;">
+    <form class="cta-form" onsubmit="handleSubmit(event, 'cta')">
+      <input type="email" id="cta-email" placeholder="Your email address" required/>
+      <button type="submit">Notify me →</button>
+    </form>
+  </div>
   <p class="cta-note">missless.com.au &nbsp;·&nbsp; Made with care in Australia &nbsp;·&nbsp; Postage always included</p>
 </section>
 
@@ -898,6 +904,20 @@ footer {
   // ── Scroll to signup ────────────────────────────────────────────────────
   function scrollToSignup() {
     document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+  }
+  function scrollToPricing() {
+    document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+  }
+  function showEmailForm() {
+    var wrap = document.getElementById('email-form-wrap');
+    wrap.style.display = wrap.style.display === 'none' ? 'block' : 'none';
+    if (wrap.style.display === 'block') {
+      document.getElementById('hero-email').focus();
+    }
+  }
+  function showCtaForm() {
+    var wrap = document.getElementById('cta-form-wrap');
+    wrap.style.display = wrap.style.display === 'none' ? 'block' : 'none';
   }
 
   // ── Form submit — posts to Formspree ────────────────────────────────────
