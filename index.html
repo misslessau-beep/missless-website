@@ -8,6 +8,8 @@
 <meta property="og:description" content="Beautiful cards, sent automatically. Set and forget for every occasion."/>
 <meta property="og:image" content="https://missless.com.au/og-image.jpg"/>
 <title>Missless — Never forget again</title>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -78,6 +80,18 @@ nav {
   letter-spacing: -.3px;
 }
 .nav-logo span { color: var(--rose); }
+.nav-logo-img {
+  height: 55px;
+  width: auto;
+  display: block;
+  filter: brightness(0);
+}
+.footer-logo-img {
+  height: 30px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(0.5);
+}
 .nav-links {
   display: flex; gap: 2rem; list-style: none;
   font-size: 13px; color: var(--ink3);
@@ -439,7 +453,7 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Miss<span>less</span></div>
+  <a href="/"><img src="missless_logo_transparent_v2.png" alt="Missless" class="nav-logo-img"/></a>
   <ul class="nav-links">
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
@@ -699,7 +713,7 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Missless</div>
+  <img src="missless_logo_transparent_v2.png" alt="Missless" class="footer-logo-img"/>
   <div class="footer-copy">© 2026 Missless Pty Ltd · ABN XX XXX XXX XXX</div>
   <div class="footer-links">
     <a href="#">Privacy</a>
