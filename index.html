@@ -3,989 +3,488 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Set up the people you love once. Missless sends a beautiful, personalised card for every birthday, anniversary and special occasion — automatically. Postage included."/>
-<meta property="og:title" content="Missless — Never forget again"/>
-<meta property="og:description" content="Beautiful cards, sent automatically. Set and forget for every occasion."/>
-<meta property="og:image" content="https://missless.com.au/og-image.jpg"/>
-<title>Missless — Never forget again</title>
+<meta name="description" content="Missless sends beautiful, personalised greeting cards to your loved ones automatically — for every birthday, anniversary and special occasion. Postage included. Set up once, never forget again."/>
+<meta property="og:title" content="Missless — Never miss what matters"/>
+<meta property="og:description" content="Beautiful cards sent automatically. Never forget a birthday or anniversary again."/>
+<title>Missless — Never miss what matters</title>
 <link rel="icon" type="image/png" href="favicon.png"/>
-<link rel="apple-touch-icon" href="favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-/* ── Reset & Tokens ─────────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --ink:    #111111;
-  --ink2:   #444444;
-  --ink3:   #888888;
-  --bg:     #F7F5F2;
-  --white:  #FFFFFF;
-  --border: #E0DBD5;
-  --rose:   #B83240;
-  --rose-lt:#F5E6E8;
-  --green:  #2A6E48;
-  --green-lt:#E6F2EB;
-  --amber:  #C47D0E;
-  --r: 6px;
-  --rl: 10px;
-  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
-}
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  font-size: 15px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-
-/* ── Animations ─────────────────────────────────────────────────────────── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; } to { opacity: 1; }
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; } 50% { opacity: .5; }
-}
-.anim-1 { animation: fadeUp .7s ease both; }
-.anim-2 { animation: fadeUp .7s .12s ease both; }
-.anim-3 { animation: fadeUp .7s .24s ease both; }
-.anim-4 { animation: fadeUp .7s .36s ease both; }
-.anim-5 { animation: fadeUp .7s .48s ease both; }
-
-/* ── Nav ────────────────────────────────────────────────────────────────── */
-nav {
-  position: sticky; top: 0; z-index: 90;
-  background: rgba(247,245,242,.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 5%;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 60px;
-}
-.nav-logo {
-  font-family: 'Lora', serif;
-  font-style: italic;
-  font-size: 21px;
-  color: var(--ink);
-  letter-spacing: -.3px;
-}
-.nav-logo span { color: var(--rose); }
-.nav-logo-img {
-  height: 55px;
-  width: auto;
-  display: block;
-  filter: brightness(0);
-}
-.footer-logo-img {
-  height: 30px;
-  width: auto;
-  display: block;
-  filter: brightness(0) invert(0.5);
-}
-.nav-links {
-  display: flex; gap: 2rem; list-style: none;
-  font-size: 13px; color: var(--ink3);
-}
-.nav-links a { transition: color .15s; }
-.nav-links a:hover { color: var(--ink); }
-.nav-cta {
-  display: flex; gap: .6rem; align-items: center;
-}
-.btn { display: inline-flex; align-items: center; justify-content: center;
-  border-radius: var(--r); font-size: 13px; font-family: 'DM Sans', sans-serif;
-  cursor: pointer; font-weight: 500; transition: all .15s; border: none;
-  padding: .55rem 1.25rem; white-space: nowrap;
-}
-.btn-dark  { background: var(--ink); color: var(--white); }
-.btn-dark:hover { background: #2a2a2a; }
-.btn-outline { background: transparent; color: var(--ink2); border: 1px solid var(--border); }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.btn-rose  { background: var(--rose); color: var(--white); }
-.btn-rose:hover { background: #9b2a37; }
-.btn-lg { padding: .75rem 1.6rem; font-size: 15px; border-radius: 8px; }
-
-/* ── Hero ───────────────────────────────────────────────────────────────── */
-.hero {
-  max-width: 1160px; margin: 0 auto;
-  padding: 7rem 5% 5rem;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 100px; padding: .28rem .85rem;
-  font-size: 12px; color: var(--ink2);
-  margin-bottom: 1.6rem;
-}
-.live-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--green);
-  animation: pulse 2s infinite;
-}
-.hero h1 {
-  font-family: 'Lora', serif;
-  font-size: clamp(36px, 4.5vw, 52px);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -.5px;
-  color: var(--ink);
-  margin-bottom: 1.3rem;
-}
-.hero h1 em { font-style: italic; color: var(--rose); }
-.hero-sub {
-  font-size: 16px; line-height: 1.75;
-  color: var(--ink2); font-weight: 300;
-  margin-bottom: 2.2rem;
-  max-width: 480px;
-}
-.signup-form {
-  display: flex; max-width: 420px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--white);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  margin-bottom: .8rem;
-}
-.signup-form input {
-  flex: 1; border: none; outline: none;
-  padding: .8rem 1.1rem;
-  font-size: 14px; font-family: 'DM Sans', sans-serif;
-  background: transparent; color: var(--ink);
-}
-.signup-form input::placeholder { color: var(--ink3); }
-.signup-form button {
-  border-radius: 0 6px 6px 0;
-  padding: .75rem 1.3rem;
-  font-size: 14px;
-}
-.hero-note { font-size: 12px; color: var(--ink3); display: flex; gap: 1rem; flex-wrap: wrap; }
-.hero-cta-btns { display: flex; gap: .8rem; flex-wrap: wrap; margin-bottom: .5rem; }
-.hero-note span::before { content: '✓ '; color: var(--green); }
-
-/* ── Hero visual ────────────────────────────────────────────────────────── */
-.hero-visual { position: relative; display: flex; align-items: center; justify-content: center; min-height: 380px; }
-.card-stack { position: relative; width: 280px; }
-.card-back {
-  position: absolute;
-  width: 100%; height: 190px;
-  background: var(--rose-lt);
-  border: 1px solid #E8C8CC;
-  border-radius: 12px;
-}
-.card-back.b1 { transform: rotate(-5deg) translate(-12px, 14px); }
-.card-back.b2 { transform: rotate(4deg) translate(14px, 10px); background: var(--white); border-color: var(--border); }
-.card-front {
-  position: relative; z-index: 2;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.6rem;
-  box-shadow: var(--shadow);
-}
-.card-status {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 11px; color: var(--green);
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-.card-status-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--green);
-  animation: pulse 2s infinite;
-}
-.card-title {
-  font-family: 'Lora', serif;
-  font-style: italic;
-  font-size: 20px;
-  color: var(--ink);
-  margin-bottom: .3rem;
-}
-.card-to { font-size: 12px; color: var(--ink3); margin-bottom: 1.2rem; }
-.card-progress-label {
-  display: flex; justify-content: space-between;
-  font-size: 11px; color: var(--ink3); margin-bottom: .4rem;
-}
-.card-track {
-  height: 4px; background: var(--bg);
-  border-radius: 2px; overflow: hidden;
-}
-.card-fill { height: 100%; width: 72%; background: var(--rose); border-radius: 2px; }
-.card-eta { font-size: 11px; color: var(--ink3); margin-top: .4rem; }
-
-.chip {
-  position: absolute; z-index: 3;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: .5rem .85rem;
-  font-size: 12px; color: var(--ink2);
-  display: flex; align-items: center; gap: 6px;
-  box-shadow: var(--shadow);
-  white-space: nowrap;
-}
-.chip-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
-.chip-dot.amber { background: var(--amber); }
-.chip.top { top: 5px; left: -50px; animation: fadeIn 1s .6s both; }
-.chip.bot { bottom: 10px; right: -45px; animation: fadeIn 1s .8s both; }
-
-/* ── Trust bar ──────────────────────────────────────────────────────────── */
-.trust {
-  background: var(--white);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 1.1rem 5%;
-}
-.trust-inner {
-  max-width: 1160px; margin: 0 auto;
-  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
-}
-.trust-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--ink3); white-space: nowrap; }
-.trust-divider { width: 1px; height: 20px; background: var(--border); }
-.trust-items { display: flex; gap: 1.8rem; flex-wrap: wrap; }
-.trust-item { font-size: 13px; color: var(--ink2); display: flex; align-items: center; gap: 6px; }
-.trust-check { color: var(--green); font-weight: 700; font-size: 13px; }
-
-/* ── Section shared ─────────────────────────────────────────────────────── */
-.section { padding: 6rem 5%; }
-.section-inner { max-width: 1160px; margin: 0 auto; }
-.section-eyebrow {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px;
-  color: var(--ink3); margin-bottom: .7rem;
-}
-.section-title {
-  font-family: 'Lora', serif;
-  font-size: clamp(26px, 3vw, 34px);
-  font-weight: 500;
-  letter-spacing: -.3px;
-  color: var(--ink);
-  margin-bottom: .5rem;
-}
-.section-sub { font-size: 15px; color: var(--ink2); font-weight: 300; margin-bottom: 3rem; }
-
-/* ── How it works ───────────────────────────────────────────────────────── */
-.how { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.steps {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  border: 1px solid var(--border); border-radius: var(--rl);
-  overflow: hidden; background: var(--border); gap: 1px;
-}
-.step { background: var(--white); padding: 2rem 1.6rem; }
-.step-num {
-  font-size: 11px; font-weight: 500; color: var(--ink3);
-  letter-spacing: .5px; margin-bottom: 1.2rem;
-  font-family: 'Lora', serif;
-}
-.step h4 { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: .5rem; }
-.step p { font-size: 13px; color: var(--ink3); line-height: 1.7; }
-
-/* ── Pricing ────────────────────────────────────────────────────────────── */
-.pricing { background: var(--bg); }
-.toggle-wrap { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
-.toggle-tabs {
-  display: flex; background: var(--white);
-  border: 1px solid var(--border); border-radius: 7px; padding: 3px;
-}
-.tab {
-  padding: .4rem 1rem; border-radius: 5px; font-size: 13px;
-  cursor: pointer; border: none; background: transparent;
-  color: var(--ink3); font-family: 'DM Sans', sans-serif;
-  font-weight: 400; transition: all .15s;
-}
-.tab.active { background: var(--white); border: 1px solid var(--border); color: var(--ink); font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-.save-tag { font-size: 12px; background: var(--green-lt); color: var(--green); padding: .2rem .65rem; border-radius: 4px; font-weight: 500; }
-
-.plan-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.plan {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: var(--rl); padding: 1.8rem 1.5rem;
-  position: relative; transition: transform .2s, box-shadow .2s;
-}
-.plan:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-.plan.featured { background: var(--ink); border-color: var(--ink); }
-.plan-badge {
-  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: var(--rose); color: var(--white);
-  font-size: 10px; padding: .22rem .85rem; border-radius: 4px;
-  white-space: nowrap; letter-spacing: .3px; font-weight: 500;
-}
-.plan-name { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--ink3); margin-bottom: .9rem; }
-.plan.featured .plan-name { color: #777; }
-.plan-price { font-family: 'Lora', serif; font-size: 38px; font-weight: 500; color: var(--ink); line-height: 1; }
-.plan.featured .plan-price { color: var(--white); }
-.plan-per { font-size: 12px; color: var(--ink3); margin-top: .15rem; margin-bottom: .9rem; }
-.plan.featured .plan-per { color: #777; }
-.plan-desc { font-size: 13px; color: var(--ink2); line-height: 1.6; margin-bottom: 1.4rem; }
-.plan.featured .plan-desc { color: #aaa; }
-.plan-features { list-style: none; margin-bottom: 1.6rem; }
-.plan-features li {
-  display: flex; align-items: flex-start; gap: 8px;
-  font-size: 13px; color: var(--ink2);
-  padding: .32rem 0; border-bottom: 1px solid var(--border);
-}
-.plan.featured .plan-features li { border-color: #2a2a2a; color: #ccc; }
-.plan-features li:last-child { border-bottom: none; }
-.feat-check { color: var(--green); flex-shrink: 0; font-size: 13px; font-weight: 700; }
-.feat-plus { color: var(--ink3); flex-shrink: 0; }
-.plan.featured .feat-check { color: #6FCF97; }
-.btn-plan {
-  width: 100%; padding: .65rem; border-radius: var(--r);
-  font-size: 13px; font-family: 'DM Sans', sans-serif;
-  cursor: pointer; font-weight: 500; transition: all .15s;
-  border: 1px solid var(--border); background: var(--bg); color: var(--ink);
-}
-.btn-plan:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
-.plan.featured .btn-plan { background: var(--white); color: var(--ink); border: none; }
-.plan.featured .btn-plan:hover { background: #eee; }
-.plan-payg { display: none; }
-
-.intl-note {
-  margin-top: 1.2rem;
-  font-size: 13px; color: var(--ink3);
-  padding: 1rem 1.2rem;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  line-height: 1.7;
-}
-.intl-note strong { color: var(--ink2); font-weight: 500; }
-
-/* ── Testimonials ───────────────────────────────────────────────────────── */
-.testimonials { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.testi-card {
-  border: 1px solid var(--border); border-radius: var(--rl);
-  padding: 1.6rem; background: var(--bg);
-  transition: transform .2s;
-}
-.testi-card:hover { transform: translateY(-2px); }
-.testi-stars { color: var(--amber); font-size: 13px; letter-spacing: 2px; margin-bottom: .8rem; }
-.testi-card blockquote {
-  font-family: 'Lora', serif; font-style: italic;
-  font-size: 15px; color: var(--ink2); line-height: 1.75;
-  margin-bottom: 1rem;
-}
-.testi-author { font-size: 12px; color: var(--ink3); font-weight: 500; }
-
-/* ── CTA ────────────────────────────────────────────────────────────────── */
-.cta-section {
-  background: var(--ink); padding: 7rem 5%; text-align: center;
-}
-.cta-section h2 {
-  font-family: 'Lora', serif; font-style: italic;
-  font-size: clamp(30px, 4vw, 44px); font-weight: 500;
-  color: var(--white); margin-bottom: .7rem;
-}
-.cta-section p { font-size: 15px; color: #999; font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; }
-.cta-form {
-  display: flex; max-width: 400px; margin: 0 auto 1rem;
-  border-radius: 8px; overflow: hidden;
-  border: 1px solid #333; background: #1e1e1e;
-}
-.cta-form input {
-  flex: 1; border: none; outline: none;
-  padding: .8rem 1.1rem; font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
-  background: transparent; color: var(--white);
-}
-.cta-form input::placeholder { color: #666; }
-.cta-form button {
-  background: var(--white); color: var(--ink); border: none;
-  padding: .75rem 1.3rem; font-size: 14px;
-  font-family: 'DM Sans', sans-serif; font-weight: 500;
-  cursor: pointer; transition: background .15s;
-}
-.cta-form button:hover { background: var(--rose-lt); }
-.cta-note { font-size: 12px; color: #555; }
-
-/* ── Footer ─────────────────────────────────────────────────────────────── */
-footer {
-  background: var(--ink); border-top: 1px solid #222;
-  padding: 1.8rem 5%;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 1rem;
-}
-.footer-logo { font-family: 'Lora', serif; font-style: italic; font-size: 17px; color: #666; }
-.footer-copy { font-size: 12px; color: #555; }
-.footer-links { display: flex; gap: 1.5rem; font-size: 12px; color: #555; }
-.footer-links a:hover { color: #999; }
-
-/* ── Toast ──────────────────────────────────────────────────────────────── */
-.toast {
-  position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
-  background: var(--ink); color: var(--white);
-  padding: .75rem 1.5rem; border-radius: 8px;
-  font-size: 13px; font-weight: 400;
-  border: 1px solid #333;
-  opacity: 0; pointer-events: none;
-  transition: opacity .3s; z-index: 999;
-  white-space: nowrap;
-}
-.toast.show { opacity: 1; pointer-events: auto; }
-
-/* ── Mobile ─────────────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 5%; }
-  .hero-visual { display: none; }
-  .steps { grid-template-columns: 1fr 1fr; }
-  .plan-grid { grid-template-columns: 1fr 1fr; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-}
-@media (max-width: 560px) {
-  .steps { grid-template-columns: 1fr; }
-  .plan-grid { grid-template-columns: 1fr; }
-  .trust-divider { display: none; }
-}
-
-/* ── Card Showcase ──────────────────────────────────────────────────────── */
-.showcase {
-  background: var(--ink);
-  padding: 5rem 5%;
-  overflow: hidden;
-}
-.showcase-inner {
-  max-width: 1160px; margin: 0 auto;
-}
-.showcase-header {
-  text-align: center; margin-bottom: 3rem;
-}
-.showcase-eyebrow {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px;
-  color: #666; margin-bottom: .7rem;
-}
-.showcase-title {
-  font-family: 'Lora', serif; font-style: italic;
-  font-size: clamp(24px, 3vw, 32px); font-weight: 500;
-  color: var(--white); margin-bottom: .5rem;
-}
-.showcase-sub {
-  font-size: 14px; color: #777; font-weight: 300;
-}
-.showcase-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-.showcase-card-wrap {
-  position: relative;
-}
-.showcase-card-label {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
-  color: #666; margin-bottom: .7rem;
-  display: flex; align-items: center; gap: 6px;
-}
-.showcase-card-label::before {
-  content: ''; display: inline-block;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--rose);
-}
-.showcase-card-img {
-  width: 100%; border-radius: 10px;
-  border: 1px solid #2a2a2a;
-  box-shadow: 0 20px 60px rgba(0,0,0,.4);
-  display: block;
-  transition: transform .3s ease;
-}
-.showcase-card-img:hover { transform: scale(1.02); }
-.showcase-card-badge {
-  position: absolute; bottom: 16px; left: 16px;
-  background: rgba(0,0,0,.75);
-  backdrop-filter: blur(8px);
-  border: 1px solid #333;
-  border-radius: 6px;
-  padding: .5rem .9rem;
-  font-size: 12px; color: #ccc;
-}
-.showcase-card-badge strong { color: white; display: block; font-size: 13px; margin-bottom: 1px; }
-.showcase-right {
-  display: flex; flex-direction: column; gap: 1.5rem;
-  padding-top: 2rem;
-}
-.showcase-feature {
-  display: flex; gap: 14px; align-items: flex-start;
-}
-.showcase-feature-icon {
-  width: 36px; height: 36px; border-radius: 8px;
-  background: #1e1e1e; border: 1px solid #2a2a2a;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px; flex-shrink: 0;
-}
-.showcase-feature-text h4 {
-  font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: .2rem;
-}
-.showcase-feature-text p {
-  font-size: 13px; color: #777; line-height: 1.65;
-}
-.showcase-inside-wrap {
-  margin-top: 1rem;
-}
-@media (max-width: 760px) {
-  .showcase-grid { grid-template-columns: 1fr; }
-  .showcase-right { padding-top: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#111;--ink2:#444;--ink3:#888;
+  --bg:#FAFAF8;--white:#fff;
+  --border:#E5E0D8;
+  --rose:#B83040;--rose-dk:#8A2030;--rose-lt:#FDF0F2;
+  --green:#2A6E48;--green-lt:#EBF5EF;
+  --cream:#FFF8F2;--cream2:#F5EDE0;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+.a1{animation:fadeUp .8s ease both}
+.a2{animation:fadeUp .8s .1s ease both}
+.a3{animation:fadeUp .8s .2s ease both}
+.a4{animation:fadeUp .8s .3s ease both}
+.a5{animation:fadeUp .8s .4s ease both}
+.float{animation:float 4s ease-in-out infinite}
+nav{position:sticky;top:0;z-index:99;background:rgba(250,250,248,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo img{height:44px;width:auto;filter:brightness(0);}
+.nav-links{display:flex;gap:2rem;list-style:none;font-size:14px;color:var(--ink3);}
+.nav-links a{transition:color .15s;text-decoration:none;color:inherit;}
+.nav-links a:hover{color:var(--ink);}
+.nav-right{display:flex;gap:.7rem;align-items:center;}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:500;transition:all .15s;text-decoration:none;border:none;white-space:nowrap;}
+.btn-sm{font-size:13px;padding:.5rem 1.1rem;}
+.btn-md{font-size:15px;padding:.7rem 1.5rem;}
+.btn-lg{font-size:16px;padding:.85rem 2rem;}
+.btn-xl{font-size:18px;padding:1rem 2.4rem;border-radius:10px;}
+.btn-dark{background:var(--ink);color:#fff;}
+.btn-dark:hover{background:#2a2a2a;}
+.btn-rose{background:var(--rose);color:#fff;}
+.btn-rose:hover{background:var(--rose-dk);}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+.btn-outline:hover{border-color:var(--ink);}
+.btn-white{background:#fff;color:var(--ink);}
+.btn-white:hover{background:#f5f5f5;}
+.hero{background:var(--cream);padding:5rem 5% 0;overflow:hidden;position:relative;}
+.hero::before{content:'';position:absolute;top:-120px;right:-120px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(184,48,64,.08) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:flex-end;}
+.hero-left{padding-bottom:5rem;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:100px;padding:.3rem 1rem;font-size:12px;font-weight:500;color:var(--ink2);margin-bottom:1.8rem;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,62px);font-weight:700;line-height:1.1;letter-spacing:-.5px;color:var(--ink);margin-bottom:1.4rem;}
+.hero h1 em{font-style:italic;color:var(--rose);}
+.hero-sub{font-size:17px;line-height:1.75;color:var(--ink2);font-weight:300;margin-bottom:2.4rem;max-width:480px;}
+.hero-sub strong{color:var(--ink);font-weight:500;}
+.hero-cta{display:flex;flex-direction:column;gap:1rem;align-items:flex-start;}
+.hero-guarantee{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink3);flex-wrap:wrap;}
+.g-check{color:var(--green);font-weight:700;}
+.hero-right{position:relative;display:flex;align-items:flex-end;justify-content:center;}
+.card-mockup-wrap{position:relative;width:100%;max-width:420px;padding-bottom:2rem;}
+.card-main{background:#fff;border-radius:16px;border:1px solid var(--border);box-shadow:0 24px 80px rgba(0,0,0,.12),0 4px 16px rgba(0,0,0,.06);overflow:hidden;position:relative;z-index:2;}
+.card-main img{width:100%;display:block;}
+.card-shadow{position:absolute;bottom:-12px;left:5%;right:5%;height:40px;background:rgba(0,0,0,.08);border-radius:50%;filter:blur(12px);z-index:1;}
+.chip{position:absolute;background:#fff;border:1px solid var(--border);border-radius:10px;padding:.6rem 1rem;font-size:12px;font-weight:500;color:var(--ink2);display:flex;align-items:center;gap:7px;box-shadow:0 4px 16px rgba(0,0,0,.1);white-space:nowrap;z-index:3;}
+.chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.chip-g{background:var(--green);}
+.chip-a{background:#D4820A;}
+.chip1{top:30px;left:-40px;animation:slideIn .8s .6s ease both,float 5s 1.4s ease-in-out infinite;}
+.chip2{bottom:60px;right:-30px;animation:slideIn .8s .9s ease both,float 5s 1.7s ease-in-out infinite;}
+.proof-bar{background:var(--ink);padding:1rem 5%;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;}
+.proof-item{display:flex;align-items:center;gap:7px;font-size:13px;color:#888;}
+.proof-item strong{color:#fff;font-weight:500;}
+.proof-div{width:1px;height:18px;background:#333;}
+.section-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--rose);font-weight:500;margin-bottom:.8rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;letter-spacing:-.3px;color:var(--ink);margin-bottom:.8rem;}
+.section-title em{font-style:italic;color:var(--rose);}
+.section-sub{font-size:16px;color:var(--ink2);font-weight:300;line-height:1.7;max-width:560px;}
+.feels{padding:6rem 5%;background:#fff;}
+.feels-inner{max-width:1100px;margin:0 auto;}
+.feels-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3.5rem;}
+.feels-card{background:var(--cream);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:transform .2s,box-shadow .2s;}
+.feels-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08);}
+.feels-card.dark{background:var(--ink);border-color:var(--ink);}
+.feels-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1.2rem;background:#fff;border:1px solid var(--border);}
+.feels-card.dark .feels-icon{background:#2a2a2a;border-color:#333;}
+.feels-card h3{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:.5rem;}
+.feels-card.dark h3{color:#fff;}
+.feels-card p{font-size:13px;color:var(--ink2);line-height:1.7;font-weight:300;}
+.feels-card.dark p{color:#999;}
+.showcase{background:var(--cream);padding:6rem 5%;overflow:hidden;}
+.showcase-inner{max-width:1100px;margin:0 auto;}
+.showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem;}
+.showcase-imgs{position:relative;padding-bottom:60px;}
+.showcase-img-main{border-radius:16px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.15);position:relative;z-index:2;}
+.showcase-img-main img{width:100%;display:block;}
+.showcase-img-sec{position:absolute;bottom:0;right:-20px;z-index:3;width:52%;border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.18);border:4px solid #fff;}
+.showcase-img-sec img{width:100%;display:block;}
+.showcase-features{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem;}
+.sf{display:flex;gap:14px;align-items:flex-start;}
+.sf-icon{width:40px;height:40px;border-radius:10px;background:var(--rose-lt);border:1px solid rgba(184,48,64,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.sf h4{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:.2rem;}
+.sf p{font-size:13px;color:var(--ink3);line-height:1.65;}
+.how{padding:6rem 5%;background:#fff;}
+.how-inner{max-width:1100px;margin:0 auto;}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4rem;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--border);}
+.how-step{background:#fff;padding:2rem 1.6rem;position:relative;}
+.how-num{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--rose-lt);line-height:1;margin-bottom:1rem;-webkit-text-stroke:1.5px #e8d5d5;}
+.how-step h4{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:.5rem;}
+.how-step p{font-size:13px;color:var(--ink3);line-height:1.7;}
+.how-arr{position:absolute;top:2rem;right:-12px;width:24px;height:24px;border-radius:50%;background:var(--rose);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;z-index:2;}
+.pricing{padding:6rem 5%;background:var(--cream);}
+.pricing-inner{max-width:1060px;margin:0 auto;}
+.pricing-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;}
+.pricing-note{font-size:13px;color:var(--ink3);max-width:260px;line-height:1.6;}
+.plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.plan{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.8rem 1.5rem;position:relative;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+.plan:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.09);}
+.plan.feat{background:var(--ink);border-color:var(--ink);}
+.plan-pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--rose);color:#fff;font-size:11px;font-weight:500;padding:.3rem 1rem;border-radius:100px;white-space:nowrap;}
+.plan-name{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--ink3);margin-bottom:1rem;font-weight:500;}
+.plan.feat .plan-name{color:#666;}
+.plan-price{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--ink);line-height:1;}
+.plan.feat .plan-price{color:#fff;}
+.plan-per{font-size:12px;color:var(--ink3);margin-top:.2rem;margin-bottom:1rem;}
+.plan.feat .plan-per{color:#777;}
+.plan-val{display:inline-block;background:var(--green-lt);color:var(--green);font-size:11px;font-weight:500;padding:.2rem .6rem;border-radius:4px;margin-bottom:1rem;}
+.plan.feat .plan-val{background:#1a3a2a;color:#6FCF97;}
+.plan-desc{font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:1.4rem;font-weight:300;}
+.plan.feat .plan-desc{color:#aaa;}
+.plan-feats{list-style:none;margin-bottom:1.6rem;flex:1;}
+.plan-feats li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--ink2);padding:.35rem 0;border-bottom:1px solid var(--border);}
+.plan.feat .plan-feats li{border-color:#2a2a2a;color:#ccc;}
+.plan-feats li:last-child{border-bottom:none;}
+.ft{color:var(--green);font-weight:700;flex-shrink:0;}
+.fp{color:var(--ink3);flex-shrink:0;}
+.plan.feat .ft{color:#6FCF97;}
+.btn-plan{width:100%;padding:.7rem;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:500;transition:all .15s;border:1.5px solid var(--border);background:var(--bg);color:var(--ink);margin-top:auto;}
+.btn-plan:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.plan.feat .btn-plan{background:#fff;color:var(--ink);border:none;}
+.plan.feat .btn-plan:hover{background:#eee;}
+.pricing-foot{margin-top:1.5rem;padding:1.2rem 1.5rem;background:#fff;border:1px solid var(--border);border-radius:10px;font-size:13px;color:var(--ink3);line-height:1.7;}
+.pricing-foot strong{color:var(--ink2);font-weight:500;}
+.testi{padding:6rem 5%;background:#fff;}
+.testi-inner{max-width:1100px;margin:0 auto;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3.5rem;}
+.testi-card{background:var(--cream);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:transform .2s;}
+.testi-card:hover{transform:translateY(-3px);}
+.testi-stars{color:#D4820A;font-size:14px;letter-spacing:2px;margin-bottom:1rem;}
+.testi-card blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--ink2);line-height:1.75;margin-bottom:1.2rem;}
+.testi-author{font-size:12px;color:var(--ink3);font-weight:500;}
+.testi-av{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;margin-bottom:1rem;}
+.final-cta{background:var(--ink);padding:7rem 5%;text-align:center;position:relative;overflow:hidden;}
+.final-cta::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(184,48,64,.2) 0%,transparent 70%);pointer-events:none;}
+.final-cta h2{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(32px,5vw,56px);font-weight:700;color:#fff;margin-bottom:1rem;position:relative;}
+.final-cta p{font-size:17px;color:#888;font-weight:300;margin-bottom:3rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative;}
+.final-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;}
+.final-note{font-size:13px;color:#555;margin-top:1.5rem;position:relative;}
+footer{background:var(--ink);border-top:1px solid #222;padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.foot-logo img{height:28px;filter:brightness(0) invert(.4);}
+.foot-copy{font-size:12px;color:#555;}
+.foot-links{display:flex;gap:1.5rem;font-size:12px;color:#555;}
+.foot-links a{color:inherit;text-decoration:none;transition:color .15s;}
+.foot-links a:hover{color:#aaa;}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#fff;color:var(--ink);padding:.75rem 1.5rem;border-radius:10px;font-size:13px;font-weight:500;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.12);opacity:0;pointer-events:none;transition:opacity .3s;z-index:999;white-space:nowrap;}
+.toast.show{opacity:1;}
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;padding-bottom:3rem;}
+  .hero-right{display:none;}
+  .feels-grid{grid-template-columns:1fr 1fr;}
+  .showcase-grid{grid-template-columns:1fr;}
+  .showcase-img-sec{display:none;}
+  .how-steps{grid-template-columns:1fr 1fr;}
+  .plan-grid{grid-template-columns:1fr 1fr;}
+  .testi-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+}
+@media(max-width:560px){
+  .feels-grid{grid-template-columns:1fr;}
+  .how-steps{grid-template-columns:1fr;}
+  .plan-grid{grid-template-columns:1fr;}
+  .proof-bar{gap:1rem;}
+  .proof-div{display:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="/"><img src="missless_logo_transparent_v2.png" alt="Missless" class="nav-logo-img"/></a>
+  <a href="/"><div class="logo"><img src="missless_logo_transparent_v2.png" alt="Missless"/></div></a>
   <ul class="nav-links">
-    <li><a href="#how">How it works</a></li>
+    <li><a href="#why">Why Missless</a></li>
+    <li><a href="#cards">The cards</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#about">About</a></li>
   </ul>
-  <div class="nav-cta">
-    <button class="btn btn-outline">Log in</button>
-    <button class="btn btn-dark" onclick="scrollToPricing()">Get started</button>
+  <div class="nav-right">
+    <button class="btn btn-outline btn-sm" onclick="go('#pricing')">See plans</button>
+    <button class="btn btn-rose btn-sm" onclick="go('#pricing')">Get started →</button>
   </div>
 </nav>
 
-<!-- HERO -->
-<section style="background: var(--bg);">
-  <div class="hero">
-    <div>
-      <div class="hero-tag anim-1">
-        <span class="live-dot"></span>
-        Now live in Australia
-      </div>
-      <h1 class="anim-2">
-        The card arrived.<br>
-        You didn't have to<br>
-        <em>remember.</em>
-      </h1>
-      <p class="hero-sub anim-3">
-        Set up the people you love once. We design, print and post a beautiful, personalised card for every birthday, anniversary and special occasion — automatically. Postage always included.
-      </p>
-      <div class="hero-cta-btns anim-4">
-        <button class="btn btn-rose btn-lg" onclick="scrollToPricing()">See plans &amp; pricing →</button>
-        <button class="btn btn-outline btn-lg" onclick="showEmailForm()">Notify me when live</button>
-      </div>
-      <div class="email-form-wrap anim-5" id="email-form-wrap" style="display:none; margin-top:1rem;">
-        <form class="signup-form" onsubmit="handleSubmit(event, 'hero')">
-          <input type="email" id="hero-email" placeholder="Your email address" required/>
-          <button type="submit" class="btn btn-rose">Notify me</button>
-        </form>
-        <div class="hero-note" style="margin-top:.6rem;">
-          <span>No spam, ever</span>
-          <span>Unsubscribe any time</span>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow a1"><span class="live-dot"></span> Now live in Australia &nbsp;·&nbsp; Postage always included</div>
+      <h1 class="a2">They'll think you <em>never</em> forget.</h1>
+      <p class="hero-sub a3">Missless automatically sends a <strong>beautiful, printed greeting card</strong> to the people you love — for every birthday, anniversary and special occasion. Set up once. We handle everything else.</p>
+      <div class="hero-cta a4">
+        <button class="btn btn-rose btn-xl" onclick="go('#pricing')">Choose a plan — from $19/mo →</button>
+        <div class="hero-guarantee">
+          <span class="g-check">✓</span> Postage included &nbsp;
+          <span class="g-check">✓</span> Cancel any time &nbsp;
+          <span class="g-check">✓</span> Cards arrive before the date &nbsp;
+          <span class="g-check">✓</span> Set and forget
         </div>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="card-stack">
-        <div class="card-back b1"></div>
-        <div class="card-back b2"></div>
-        <div class="card-front">
-          <div class="card-status">
-            <span class="card-status-dot"></span>
-            Printing now
-          </div>
-          <div class="card-title">Happy Birthday, Mum</div>
-          <div class="card-to">To: Anne · Sydney, NSW</div>
-          <div class="card-progress-label">
-            <span>Progress</span><span>Printing</span>
-          </div>
-          <div class="card-track"><div class="card-fill"></div></div>
-          <div class="card-eta">Est. delivery Thu 10 Apr</div>
+    <div class="hero-right a5">
+      <div class="card-mockup-wrap float">
+        <div class="card-main">
+          <img src="mothers_day_card_cover.png" alt="Beautiful Missless greeting card"/>
         </div>
-      </div>
-      <div class="chip top">
-        <span class="chip-dot"></span>
-        6 occasions scheduled
-      </div>
-      <div class="chip bot">
-        <span class="chip-dot amber"></span>
-        Card dispatched today
+        <div class="card-shadow"></div>
+        <div class="chip chip1"><span class="chip-dot chip-g"></span> Printing now · Delivers Thu</div>
+        <div class="chip chip2"><span class="chip-dot chip-a"></span> 6 occasions scheduled</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust">
-  <div class="trust-inner">
-    <div class="trust-label">Why Missless</div>
-    <div class="trust-divider"></div>
-    <div class="trust-items">
-      <div class="trust-item"><span class="trust-check">✓</span> Postage always included</div>
-      <div class="trust-item"><span class="trust-check">✓</span> Designed &amp; printed in Australia</div>
-      <div class="trust-item"><span class="trust-check">✓</span> Arrives before the occasion</div>
-      <div class="trust-item"><span class="trust-check">✓</span> 100% set and forget</div>
-      <div class="trust-item"><span class="trust-check">✓</span> Cancel any time</div>
-    </div>
-  </div>
+<div class="proof-bar">
+  <div class="proof-item"><strong>Printed</strong> in Australia</div>
+  <div class="proof-div"></div>
+  <div class="proof-item"><strong>Postage</strong> always included</div>
+  <div class="proof-div"></div>
+  <div class="proof-item">Arrives <strong>before</strong> the occasion</div>
+  <div class="proof-div"></div>
+  <div class="proof-item"><strong>100%</strong> automated</div>
+  <div class="proof-div"></div>
+  <div class="proof-item"><strong>Cancel</strong> any time</div>
 </div>
 
+<section class="feels" id="why">
+  <div class="feels-inner">
+    <div class="section-eyebrow">Why Missless</div>
+    <div class="section-title">You're busy. <em>They deserve better.</em></div>
+    <p class="section-sub">Life gets in the way. Missless makes sure the people you love always feel remembered — without you having to remember.</p>
+    <div class="feels-grid">
+      <div class="feels-card">
+        <div class="feels-icon">📅</div>
+        <h3>Set up once, sorted forever</h3>
+        <p>Add a name and a date. We schedule every card automatically, year after year. You never have to think about it again.</p>
+      </div>
+      <div class="feels-card">
+        <div class="feels-icon">✉️</div>
+        <h3>Real cards, not e-cards</h3>
+        <p>Premium printed cards posted directly to your recipient — the kind people keep on their mantelpiece, not delete from their inbox.</p>
+      </div>
+      <div class="feels-card">
+        <div class="feels-icon">💌</div>
+        <h3>Personalised inside</h3>
+        <p>Write your own message or let us craft something beautiful. Either way, it feels personal — because it is.</p>
+      </div>
+      <div class="feels-card dark">
+        <div class="feels-icon">⚡</div>
+        <h3>Takes 2 minutes to set up</h3>
+        <p>Sign up, add the people you love, tell us the dates. We handle the design, printing and postage — automatically, every year.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- CARD SHOWCASE -->
-<section class="showcase">
+<section class="showcase" id="cards">
   <div class="showcase-inner">
-    <div class="showcase-header">
-      <div class="showcase-eyebrow">The cards</div>
-      <div class="showcase-title">Beautiful cards, made for the moment</div>
-      <p class="showcase-sub">Designed, printed and posted — every card is a keepsake worth keeping.</p>
-    </div>
+    <div class="section-eyebrow">The cards</div>
+    <div class="section-title">Cards worth <em>keeping.</em></div>
+    <p class="section-sub">Printed at 300dpi on premium card stock, sealed in an envelope, posted to your recipient. The quality speaks for itself.</p>
     <div class="showcase-grid">
+      <div class="showcase-imgs">
+        <div class="showcase-img-main">
+          <img src="mothers_day_card_cover.png" alt="Missless Mother's Day card — outside cover"/>
+        </div>
+        <div class="showcase-img-sec">
+          <img src="mothers_day_card_inside.png" alt="Missless Mother's Day card — inside message"/>
+        </div>
+      </div>
       <div>
-        <div class="showcase-card-label">Mother's Day Card — 2026</div>
-        <div class="showcase-card-wrap">
-          <img src="card_mockup.jpg" alt="Mother's Day card" class="showcase-card-img"/>
-          <div class="showcase-card-badge">
-            <strong>Designed &amp; printed in Australia</strong>
-            AU postage always included
-          </div>
+        <div class="section-eyebrow">What's included</div>
+        <div class="section-title" style="font-size:clamp(24px,2.5vw,34px);">Every card, every time</div>
+        <div class="showcase-features">
+          <div class="sf"><div class="sf-icon">🖨️</div><div><h4>Premium 300dpi print quality</h4><p>Thick, high-quality card stock. Looks and feels like it came from a boutique card shop.</p></div></div>
+          <div class="sf"><div class="sf-icon">🎨</div><div><h4>Designed for every occasion</h4><p>Birthdays, anniversaries, Mother's Day, Father's Day, Christmas and more — each design crafted for the moment.</p></div></div>
+          <div class="sf"><div class="sf-icon">📬</div><div><h4>Posted directly to your recipient</h4><p>Addressed, sealed and posted. No trips to the post office — ever. AU postage always included.</p></div></div>
+          <div class="sf"><div class="sf-icon">🌍</div><div><h4>International delivery available</h4><p>Sending overseas? We post internationally for just $5.99 per card.</p></div></div>
         </div>
-      </div>
-      <div class="showcase-right">
-        <div class="showcase-feature">
-          <div class="showcase-feature-icon">✉️</div>
-          <div class="showcase-feature-text">
-            <h4>Designed for every occasion</h4>
-            <p>Birthdays, anniversaries, Mother's Day, Father's Day, Christmas and more — each card is crafted to suit the moment.</p>
-          </div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-icon">🖨️</div>
-          <div class="showcase-feature-text">
-            <h4>Professional print quality</h4>
-            <p>Printed on premium card stock at 300dpi. The kind of card people keep on their mantelpiece, not throw away.</p>
-          </div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-icon">📬</div>
-          <div class="showcase-feature-text">
-            <h4>Postage always included</h4>
-            <p>We post directly to your recipient anywhere in Australia. No trips to the post office. Ever.</p>
-          </div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-icon">✍️</div>
-          <div class="showcase-feature-text">
-            <h4>Personalised message inside</h4>
-            <p>Every card includes a heartfelt message. Add your own words or let us write something meaningful on your behalf.</p>
-          </div>
-        </div>
-        <div class="showcase-feature">
-          <div class="showcase-feature-icon">🌍</div>
-          <div class="showcase-feature-text">
-            <h4>International delivery available</h4>
-            <p>Sending to someone overseas? We post internationally too — just add $5.99 per card.</p>
-          </div>
-        </div>
-        <div style="margin-top:.5rem;">
-          <button class="btn btn-rose btn-lg" onclick="handlePlan('family')" style="width:100%;">Start sending cards →</button>
+        <div style="margin-top:2rem;">
+          <button class="btn btn-rose btn-lg" onclick="go('#pricing')">Start sending cards →</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section how" id="how">
-  <div class="section-inner">
+<section class="how" id="how">
+  <div class="how-inner">
     <div class="section-eyebrow">How it works</div>
-    <div class="section-title">Four steps. Then forget about it.</div>
-    <p class="section-sub">Seriously — that's all there is to it.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
+    <div class="section-title">Four steps. <em>Then forget.</em></div>
+    <p class="section-sub">Once you've set it up, you never have to think about it again.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">01</div>
         <h4>Sign up</h4>
-        <p>Your email only. No credit card, no long forms. You're in within 30 seconds.</p>
+        <p>Choose a plan. Takes 2 minutes. Postage always included.</p>
+        <div class="how-arr">→</div>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h4>Add a person</h4>
-        <p>A name and a date. That's it. We'll ask for their address closer to the occasion.</p>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <h4>Add your people</h4>
+        <p>Name, occasion, date and their address. Done in minutes.</p>
+        <div class="how-arr">→</div>
       </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h4>We handle everything</h4>
-        <p>Design, personalise, print and post — on time, every time. You do nothing.</p>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <h4>We do everything</h4>
+        <p>Design, print, personalise and post — automatically, every year, on time.</p>
+        <div class="how-arr">→</div>
       </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h4>They feel remembered</h4>
-        <p>You look like a legend. They feel genuinely loved. Everyone wins.</p>
+      <div class="how-step">
+        <div class="how-num">04</div>
+        <h4>They feel loved</h4>
+        <p>A beautiful card arrives before the occasion. You look thoughtful. They feel remembered.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="section pricing" id="pricing">
-  <div class="section-inner">
-    <div class="section-eyebrow">Pricing</div>
-    <div class="section-title">Simple, honest pricing</div>
-    <p class="section-sub">All plans include AU postage. International delivery is a small add-on.</p>
-
-    <div class="toggle-wrap">
-      <div class="toggle-tabs">
-        <button class="tab active" id="tab-monthly" onclick="switchTab('monthly')">Monthly plans</button>
-        <button class="tab" id="tab-payg" onclick="switchTab('payg')">Pay per card</button>
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-top">
+      <div>
+        <div class="section-eyebrow">Pricing</div>
+        <div class="section-title" style="margin-bottom:0;">Simple, <em>honest</em> pricing</div>
       </div>
-      <span class="save-tag" id="save-tag">Best value vs pay-per-card</span>
+      <p class="pricing-note">All plans include AU postage. International delivery is just $5.99 per card.</p>
     </div>
-
-    <!-- MONTHLY PLANS -->
-    <div class="plan-grid" id="monthly-plans">
+    <div class="plan-grid">
       <div class="plan">
         <div class="plan-name">Essential</div>
         <div class="plan-price">$19</div>
         <div class="plan-per">per month</div>
-        <p class="plan-desc">For the occasional sender. 2 cards included each month.</p>
-        <ul class="plan-features">
-          <li><span class="feat-check">✓</span> 2 cards per month</li>
-          <li><span class="feat-check">✓</span> AU postage included</li>
-          <li><span class="feat-check">✓</span> All card designs</li>
-          <li><span class="feat-check">✓</span> Occasion reminders</li>
-          <li><span class="feat-plus">+</span> Intl delivery $5.99/card</li>
+        <div class="plan-val">$9.50 per card</div>
+        <p class="plan-desc">For the occasional sender. 2 cards included every month.</p>
+        <ul class="plan-feats">
+          <li><span class="ft">✓</span> 2 cards per month</li>
+          <li><span class="ft">✓</span> AU postage included</li>
+          <li><span class="ft">✓</span> All card designs</li>
+          <li><span class="ft">✓</span> Occasion reminders</li>
+          <li><span class="fp">+</span> Intl delivery $5.99/card</li>
         </ul>
-        <button class="btn-plan" onclick="handlePlan('essential')">Get started</button>
+        <button class="btn-plan" onclick="pay('essential')">Get started →</button>
       </div>
-
-      <div class="plan featured">
-        <div class="plan-badge">Most popular</div>
+      <div class="plan feat">
+        <div class="plan-pop">Most popular</div>
         <div class="plan-name">Family</div>
         <div class="plan-price">$29</div>
         <div class="plan-per">per month</div>
-        <p class="plan-desc">For the people who matter most. 4 cards included each month.</p>
-        <ul class="plan-features">
-          <li><span class="feat-check">✓</span> 4 cards per month</li>
-          <li><span class="feat-check">✓</span> AU postage included</li>
-          <li><span class="feat-check">✓</span> All card designs</li>
-          <li><span class="feat-check">✓</span> Custom messages</li>
-          <li><span class="feat-plus" style="color:#555;">+</span> Intl delivery $5.99/card</li>
+        <div class="plan-val">$7.25 per card</div>
+        <p class="plan-desc">For the people who matter most. 4 cards included every month.</p>
+        <ul class="plan-feats">
+          <li><span class="ft">✓</span> 4 cards per month</li>
+          <li><span class="ft">✓</span> AU postage included</li>
+          <li><span class="ft">✓</span> All card designs</li>
+          <li><span class="ft">✓</span> Custom messages</li>
+          <li><span class="fp" style="color:#555;">+</span> Intl delivery $5.99/card</li>
         </ul>
-        <button class="btn-plan" onclick="handlePlan('family')">Get started</button>
+        <button class="btn-plan" onclick="pay('family')">Get started →</button>
       </div>
-
       <div class="plan">
         <div class="plan-name">Unlimited</div>
         <div class="plan-price">$49</div>
         <div class="plan-per">per month</div>
-        <p class="plan-desc">Never think about it again. Unlimited cards, fair use applies.</p>
-        <ul class="plan-features">
-          <li><span class="feat-check">✓</span> Unlimited cards*</li>
-          <li><span class="feat-check">✓</span> AU postage included</li>
-          <li><span class="feat-check">✓</span> All card designs</li>
-          <li><span class="feat-check">✓</span> Custom messages</li>
-          <li><span class="feat-plus">+</span> Intl delivery $5.99/card</li>
+        <div class="plan-val">Unlimited cards*</div>
+        <p class="plan-desc">Never think about it again. Unlimited cards for everyone you love.</p>
+        <ul class="plan-feats">
+          <li><span class="ft">✓</span> Unlimited cards*</li>
+          <li><span class="ft">✓</span> AU postage included</li>
+          <li><span class="ft">✓</span> All card designs</li>
+          <li><span class="ft">✓</span> Custom messages</li>
+          <li><span class="fp">+</span> Intl delivery $5.99/card</li>
         </ul>
-        <button class="btn-plan" onclick="handlePlan('unlimited')">Get started</button>
+        <button class="btn-plan" onclick="pay('unlimited')">Get started →</button>
       </div>
-
-      <div class="plan" style="background: var(--bg); border-style: dashed;">
-        <div class="plan-name">Not sure yet?</div>
-        <div style="font-family:'Lora',serif; font-size:22px; color:var(--ink); margin: .5rem 0 .2rem; font-style:italic;">Try one first</div>
-        <div class="plan-per">pay per card</div>
-        <p class="plan-desc" style="margin-top:.9rem;">Send a single card with no subscription. $19.99 per card, postage included.</p>
-        <ul class="plan-features">
-          <li><span class="feat-check">✓</span> No subscription</li>
-          <li><span class="feat-check">✓</span> AU postage included</li>
-          <li><span class="feat-check">✓</span> All card designs</li>
-          <li><span class="feat-plus">+</span> Intl delivery $5.99/card</li>
+      <div class="plan" style="border-style:dashed;">
+        <div class="plan-name">Pay per card</div>
+        <div class="plan-price" style="font-size:34px;">$19<span style="font-size:18px;color:var(--ink3)">.99</span></div>
+        <div class="plan-per">per card · no subscription</div>
+        <div class="plan-val" style="background:#f5f5f5;color:var(--ink3);">No commitment</div>
+        <p class="plan-desc">Just need one card? Pay as you go with no subscription required.</p>
+        <ul class="plan-feats">
+          <li><span class="ft">✓</span> No subscription</li>
+          <li><span class="ft">✓</span> AU postage included</li>
+          <li><span class="ft">✓</span> All card designs</li>
+          <li><span class="ft">✓</span> Custom message</li>
+          <li><span class="fp">+</span> Intl delivery $5.99/card</li>
         </ul>
-        <button class="btn-plan" onclick="handlePlan('payg-single')">Send a card</button>
+        <button class="btn-plan" onclick="pay('payg')">Send a card →</button>
       </div>
     </div>
-
-    <!-- PAY PER CARD -->
-    <div id="payg-plan" style="display:none; max-width:340px;">
-      <div class="plan">
-        <div class="plan-name">Pay as you go</div>
-        <div class="plan-price">$19<span style="font-size:18px; color:var(--ink3);">.99</span></div>
-        <div class="plan-per">per card, no subscription</div>
-        <p class="plan-desc" style="margin-top:.9rem;">Send a card whenever you need one. No commitment, no monthly fee.</p>
-        <ul class="plan-features">
-          <li><span class="feat-check">✓</span> No subscription required</li>
-          <li><span class="feat-check">✓</span> AU postage included</li>
-          <li><span class="feat-check">✓</span> All card designs</li>
-          <li><span class="feat-check">✓</span> Custom message</li>
-          <li><span class="feat-plus">+</span> Intl delivery $5.99/card</li>
-        </ul>
-        <button class="btn-plan btn-dark" style="color:white; background:var(--ink); border:none;" onclick="handlePlan('payg')">Send a card — $19.99</button>
-      </div>
-      <p style="font-size:13px; color:var(--ink3); margin-top:1rem;">
-        Sending 2+ cards a month? A monthly plan works out much better value — from $9.50/card on Essential.
-        <a href="#" onclick="switchTab('monthly'); return false;" style="color:var(--rose);">View plans →</a>
-      </p>
-    </div>
-
-    <div class="intl-note">
+    <div class="pricing-foot">
       <strong>International delivery:</strong> Add $5.99 per card for delivery outside Australia — available on all plans including Unlimited. &nbsp;·&nbsp;
-      <strong>*Fair use policy:</strong> Unlimited plans are subject to a fair use limit of 20 cards/month. This affects fewer than 1% of customers. See our <a href="#" style="color:var(--rose);">fair use policy</a> for details.
+      <strong>*Fair use policy:</strong> Unlimited plans are subject to a fair use limit of 20 cards per month. This affects fewer than 1% of customers.
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section testimonials" id="about">
-  <div class="section-inner">
-    <div class="section-eyebrow">Early users</div>
-    <div class="section-title">People are loving it</div>
-    <p class="section-sub">Real reactions from our early access community across Australia.</p>
+<section class="testi">
+  <div class="testi-inner">
+    <div class="section-eyebrow">What people say</div>
+    <div class="section-title">They thought we <em>finally</em> had it together.</div>
+    <p class="section-sub">Real reactions from our early customers across Australia.</p>
     <div class="testi-grid">
       <div class="testi-card">
+        <div class="testi-av">JK</div>
         <div class="testi-stars">★★★★★</div>
         <blockquote>"My mum actually cried. She thought I'd finally got my life together. I have not — but she doesn't need to know that."</blockquote>
         <div class="testi-author">James K. — Melbourne, VIC</div>
       </div>
       <div class="testi-card">
+        <div class="testi-av">SM</div>
         <div class="testi-stars">★★★★★</div>
         <blockquote>"Forgot my parents' anniversary six years straight. Set it up once on Missless and haven't thought about it since."</blockquote>
         <div class="testi-author">Sarah M. — Sydney, NSW</div>
       </div>
       <div class="testi-card">
+        <div class="testi-av">ET</div>
         <div class="testi-stars">★★★★★</div>
-        <blockquote>"The card arrived two days before her birthday. My nan called it 'the nicest thing I've ever received.' Worth every cent."</blockquote>
+        <blockquote>"The card arrived two days before her birthday. My nan called it the nicest thing she'd ever received. Worth every cent."</blockquote>
         <div class="testi-author">Elif T. — Brisbane, QLD</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="signup">
-  <h2>Never forget again.</h2>
-  <p>Your email is all we need to get started. Add your first occasion in under a minute.</p>
-  <div style="display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-bottom:1rem;">
-    <button class="btn btn-lg" style="background:white;color:var(--ink);border:none;font-size:15px;padding:.8rem 2rem;border-radius:8px;" onclick="scrollToPricing()">Choose a plan →</button>
-    <button class="btn btn-lg btn-outline" style="border-color:#444;color:#999;font-size:15px;padding:.8rem 2rem;border-radius:8px;" onclick="showCtaForm()">Just notify me</button>
+<section class="final-cta">
+  <h2>Start today. Never forget again.</h2>
+  <p>The people you love deserve to feel remembered. Missless makes sure they always do — automatically.</p>
+  <div class="final-btns">
+    <button class="btn btn-white btn-xl" onclick="go('#pricing')">See plans — from $19/mo →</button>
+    <button class="btn btn-xl" style="background:transparent;color:#aaa;border:1.5px solid #333;" onclick="pay('payg')">Send one card — $19.99</button>
   </div>
-  <div id="cta-form-wrap" style="display:none;">
-    <form class="cta-form" onsubmit="handleSubmit(event, 'cta')">
-      <input type="email" id="cta-email" placeholder="Your email address" required/>
-      <button type="submit">Notify me →</button>
-    </form>
-  </div>
-  <p class="cta-note">missless.com.au &nbsp;·&nbsp; Made with care in Australia &nbsp;·&nbsp; Postage always included</p>
+  <div class="final-note">Postage included &nbsp;·&nbsp; Cancel any time &nbsp;·&nbsp; Cards arrive before the occasion</div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <img src="missless_logo_transparent_v2.png" alt="Missless" class="footer-logo-img"/>
-  <div class="footer-copy">© 2026 Missless Pty Ltd · ABN XX XXX XXX XXX</div>
-  <div class="footer-links">
+  <div class="foot-logo"><img src="missless_logo_transparent_v2.png" alt="Missless"/></div>
+  <div class="foot-copy">© 2026 Missless Pty Ltd · missless.com.au</div>
+  <div class="foot-links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
-    <a href="#">Fair Use Policy</a>
+    <a href="#">Fair Use</a>
     <a href="mailto:hello@missless.com.au">Contact</a>
   </div>
 </footer>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-  // ── Tab toggle ──────────────────────────────────────────────────────────
-  function switchTab(tab) {
-    var monthly = tab === 'monthly';
-    document.getElementById('tab-monthly').className = 'tab' + (monthly ? ' active' : '');
-    document.getElementById('tab-payg').className    = 'tab' + (!monthly ? ' active' : '');
-    document.getElementById('monthly-plans').style.display = monthly ? 'grid' : 'none';
-    document.getElementById('payg-plan').style.display     = monthly ? 'none'  : 'block';
-    document.getElementById('save-tag').style.display      = monthly ? 'inline' : 'none';
-  }
-
-  // ── Scroll to signup ────────────────────────────────────────────────────
-  function scrollToSignup() {
-    document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
-  }
-  function scrollToPricing() {
-    document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
-  }
-  function showEmailForm() {
-    var wrap = document.getElementById('email-form-wrap');
-    wrap.style.display = wrap.style.display === 'none' ? 'block' : 'none';
-    if (wrap.style.display === 'block') {
-      document.getElementById('hero-email').focus();
-    }
-  }
-  function showCtaForm() {
-    var wrap = document.getElementById('cta-form-wrap');
-    wrap.style.display = wrap.style.display === 'none' ? 'block' : 'none';
-  }
-
-  // ── Form submit — posts to Formspree ────────────────────────────────────
-  function handleSubmit(e, source) {
-    e.preventDefault();
-    var email = document.getElementById(source === 'cta' ? 'cta-email' : 'hero-email').value;
-    if (!email) return;
-
-    var FORMSPREE_ID = 'mjgplgnd';
-
-    fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email, source: source })
-    })
-    .then(function(r) {
-      if (r.ok) {
-        showToast("You're on the list! We'll be in touch soon. 🎉");
-        document.getElementById(source === 'cta' ? 'cta-email' : 'hero-email').value = '';
-      } else {
-        showToast('Something went wrong — please try again.');
-      }
-    })
-    .catch(function() {
-      // Fallback: show success anyway for demo purposes
-      showToast("You're on the list! We'll be in touch soon. 🎉");
-      document.getElementById(source === 'cta' ? 'cta-email' : 'hero-email').value = '';
-    });
-  }
-
-  // ── Plan buttons — Stripe Payment Links ─────────────────────────────────
-  function handlePlan(plan) {
-    var links = {
-      'essential':   'https://buy.stripe.com/8x228sbOh6aQfsGfWC9k400',
-      'family':      'https://buy.stripe.com/6oUfZi19D1UA4O24dU9k401',
-      'unlimited':   'https://buy.stripe.com/00waEY9G98iYgwKaCi9k402',
-      'payg':        'https://buy.stripe.com/14A7sM7y1fLqfsGeSy9k403',
-      'payg-single': 'https://buy.stripe.com/14A7sM7y1fLqfsGeSy9k403'
-    };
-    if (links[plan]) {
-      window.location.href = links[plan];
-    }
-  }
-
-  // ── Toast ────────────────────────────────────────────────────────────────
-  function showToast(msg) {
-    var t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(function() { t.classList.remove('show'); }, 4000);
-  }
-
-  // ── Intersection observer for scroll animations ──────────────────────────
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.step, .plan, .testi-card').forEach(function(el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .5s ease, transform .5s ease';
-    observer.observe(el);
-  });
+var STRIPE={
+  essential:'https://buy.stripe.com/8x228sbOh6aQfsGfWC9k400',
+  family:'https://buy.stripe.com/6oUfZi19D1UA4O24dU9k401',
+  unlimited:'https://buy.stripe.com/00waEY9G98iYgwKaCi9k402',
+  payg:'https://buy.stripe.com/14A7sM7y1fLqfsGeSy9k403'
+};
+function pay(p){if(STRIPE[p])window.location.href=STRIPE[p];}
+function go(id){var el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth'});}
+function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},3500);}
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.feels-card,.how-step,.plan,.testi-card,.sf').forEach(function(el){el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .6s ease,transform .6s ease';obs.observe(el);});
 </script>
 </body>
 </html>
