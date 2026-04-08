@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<title>Terms & Conditions — Missless</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#111;--ink2:#444;--ink3:#888;
+  --bg:#FAFAF8;--white:#fff;
+  --border:#E5E0D8;
+  --rose:#B83040;--rose-dk:#8A2030;--rose-lt:#FDF0F2;
+  --green:#2A6E48;--green-lt:#EBF5EF;
+  --cream:#FFF8F2;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
+nav{position:sticky;top:0;z-index:99;background:rgba(250,250,248,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo img{height:52px;width:auto;max-width:200px;}
+.nav-links{display:flex;gap:2rem;list-style:none;font-size:14px;color:var(--ink3);}
+.nav-links a{text-decoration:none;color:inherit;transition:color .15s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-right{display:flex;gap:.7rem;align-items:center;}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:500;transition:all .15s;text-decoration:none;border:none;white-space:nowrap;}
+.btn-sm{font-size:13px;padding:.5rem 1.1rem;}
+.btn-rose{background:var(--rose);color:#fff;}
+.btn-rose:hover{background:var(--rose-dk);}
+.page-hero{background:var(--cream);padding:4rem 5% 3rem;border-bottom:1px solid var(--border);}
+.page-hero-inner{max-width:800px;margin:0 auto;}
+.page-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--rose);font-weight:500;margin-bottom:.8rem;}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--ink);letter-spacing:-.3px;margin-bottom:.6rem;}
+.page-date{font-size:13px;color:var(--ink3);}
+.page-body{max-width:800px;margin:0 auto;padding:4rem 5%;}
+.page-body h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin:2.5rem 0 .8rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.page-body h2:first-child{margin-top:0;}
+.page-body h3{font-size:16px;font-weight:500;color:var(--ink);margin:1.5rem 0 .5rem;}
+.page-body p{font-size:15px;color:var(--ink2);line-height:1.8;margin-bottom:1rem;font-weight:300;}
+.page-body p strong{color:var(--ink);font-weight:500;}
+.page-body ul,.page-body ol{font-size:15px;color:var(--ink2);line-height:1.8;margin:0 0 1rem 1.5rem;font-weight:300;}
+.page-body ul li,.page-body ol li{margin-bottom:.4rem;}
+.page-body a{color:var(--rose);text-decoration:none;}
+.page-body a:hover{text-decoration:underline;}
+.highlight-box{background:var(--cream);border:1px solid var(--border);border-left:3px solid var(--rose);border-radius:8px;padding:1.2rem 1.4rem;margin:1.5rem 0;}
+.highlight-box p{margin:0;font-size:14px;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;}
+.contact-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;}
+.contact-card-icon{font-size:28px;margin-bottom:.8rem;}
+.contact-card h3{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:.3rem;}
+.contact-card p{font-size:13px;color:var(--ink3);margin:0;}
+.contact-card a{display:inline-block;margin-top:.8rem;font-size:13px;color:var(--rose);font-weight:500;}
+.faq-item{border-bottom:1px solid var(--border);padding:1.2rem 0;}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.faq-a{font-size:14px;color:var(--ink2);line-height:1.75;font-weight:300;display:none;}
+.faq-a.open{display:block;}
+.faq-arrow{font-size:18px;color:var(--ink3);transition:transform .2s;flex-shrink:0;}
+.faq-arrow.open{transform:rotate(180deg);}
+footer{background:var(--ink);border-top:1px solid #222;padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.foot-logo img{height:32px;width:auto;filter:invert(1);opacity:.4;}
+.foot-copy{font-size:12px;color:#555;}
+.foot-links{display:flex;gap:1.5rem;font-size:12px;color:#555;flex-wrap:wrap;}
+.foot-links a{color:inherit;text-decoration:none;transition:color .15s;}
+.foot-links a:hover{color:#aaa;}
+@media(max-width:760px){.nav-links{display:none;}.contact-grid{grid-template-columns:1fr;}}
+</style>
+</head><body>
+<nav>
+  <a href="/"><div class="logo"><img src="missless_logo_color.png" alt="Missless"/></div></a>
+  <ul class="nav-links">
+    <li><a href="/#why">Why Missless</a></li>
+    <li><a href="/#cards">The cards</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/#pricing" class="btn btn-rose btn-sm">Get started →</a>
+  </div>
+</nav>
+<div class="page-hero"><div class="page-hero-inner">
+  <div class="page-eyebrow">Legal</div>
+  <div class="page-title">Terms &amp; Conditions</div>
+  <div class="page-date">Last updated: 9 April 2026</div>
+</div></div>
+<div class="page-body">
+  <div class="highlight-box"><p><strong>The short version:</strong> Use Missless fairly, pay your subscription, give us accurate addresses and we'll send beautiful cards on time.</p></div>
+  <h2>1. About these terms</h2>
+  <p>These Terms govern your use of Missless operated by Missless Pty Ltd. By signing up, you agree to these terms.</p>
+  <h2>2. Our service</h2>
+  <p>Missless designs, prints and posts physical greeting cards to recipients you nominate, on dates and occasions you specify. You are responsible for ensuring recipient details are accurate.</p>
+  <h2>3. Subscriptions and payment</h2>
+  <p>Subscriptions are billed monthly in AUD. Payment is processed by Stripe. You authorise recurring monthly charges. We give 30 days notice of any price increases.</p>
+  <h3>Failed payments</h3>
+  <p>If payment fails, we will attempt to collect again. Your subscription may be paused if payment cannot be collected. We will notify you by email.</p>
+  <h2>4. Cancellation</h2>
+  <p>Cancel any time via your account or by emailing <a href="mailto:hello@missless.com.au">hello@missless.com.au</a>. Cancellation takes effect at the end of the current billing period. No partial refunds except as required by Australian Consumer Law.</p>
+  <h2>5. Card delivery</h2>
+  <p>We make every effort to post cards with sufficient time to arrive before your occasion. We cannot guarantee delivery dates due to postal service delays outside our control. We recommend providing occasion details at least 3 weeks before the date.</p>
+  <h2>6. Accuracy of information</h2>
+  <p>You are responsible for providing accurate recipient names, addresses and occasion dates. We are not liable for delivery failures due to inaccurate information.</p>
+  <h2>7. Acceptable use</h2>
+  <p>You must not use Missless to send cards with unlawful, defamatory or offensive content. We reserve the right to refuse any such order with a full refund.</p>
+  <h2>8. Fair use — Unlimited plan</h2>
+  <p>The Unlimited plan is subject to a fair use limit of 20 cards per month. See our <a href="fair-use.html">Fair Use Policy</a>.</p>
+  <h2>9. Limitation of liability</h2>
+  <p>To the maximum extent permitted by Australian law, our total liability shall not exceed the amount paid by you in the 3 months prior to the claim. Nothing limits your rights under the Australian Consumer Law.</p>
+  <h2>10. Governing law</h2>
+  <p>These terms are governed by the laws of Victoria, Australia.</p>
+  <h2>11. Contact</h2>
+  <p><a href="mailto:hello@missless.com.au">hello@missless.com.au</a></p>
+</div>
+<footer>
+  <div class="foot-logo"><img src="missless_logo_color.png" alt="Missless"/></div>
+  <div class="foot-copy">© 2026 Missless Pty Ltd · ABN XX XXX XXX XXX · missless.com.au</div>
+  <div class="foot-links">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="refunds.html">Refunds</a>
+    <a href="fair-use.html">Fair Use</a>
+    <a href="shipping.html">Shipping</a>
+    <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+</footer></body></html>
