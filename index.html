@@ -756,19 +756,18 @@ footer {
     });
   }
 
-  // ── Plan buttons — scroll to signup + show toast ─────────────────────────
+  // ── Plan buttons — Stripe Payment Links ─────────────────────────────────
   function handlePlan(plan) {
-    var labels = {
-      'essential':   'Essential ($19/mo)',
-      'family':      'Family ($29/mo)',
-      'unlimited':   'Unlimited ($49/mo)',
-      'payg':        'Pay per card ($19.99)',
-      'payg-single': 'Pay per card ($19.99)'
+    var links = {
+      'essential':   'https://buy.stripe.com/8x228sbOh6aQfsGfWC9k400',
+      'family':      'https://buy.stripe.com/6oUfZi19D1UA4O24dU9k401',
+      'unlimited':   'https://buy.stripe.com/00waEY9G98iYgwKaCi9k402',
+      'payg':        'https://buy.stripe.com/14A7sM7y1fLqfsGeSy9k403',
+      'payg-single': 'https://buy.stripe.com/14A7sM7y1fLqfsGeSy9k403'
     };
-    showToast('Great choice! Sign up below and we\'ll get you started on ' + (labels[plan] || 'your plan') + '.');
-    setTimeout(function() {
-      document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
-    }, 600);
+    if (links[plan]) {
+      window.location.href = links[plan];
+    }
   }
 
   // ── Toast ────────────────────────────────────────────────────────────────
