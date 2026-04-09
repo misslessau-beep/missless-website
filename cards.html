@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<title>Card Designs — Missless</title>
+<meta name="description" content="Browse the Missless card range — Mother's Day, Birthday, Anniversary and Christmas. Premium printed cards, new designs every season, posted directly to your recipient."/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#111;--ink2:#444;--ink3:#888;
+  --bg:#FAFAF8;--white:#fff;
+  --border:#E5E0D8;
+  --rose:#B83040;--rose-dk:#8A2030;--rose-lt:#FDF0F2;
+  --green:#2A6E48;--green-lt:#EBF5EF;
+  --cream:#FFF8F2;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
+nav{position:sticky;top:0;z-index:99;background:rgba(250,250,248,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo img{height:52px;width:auto;max-width:200px;}
+.nav-links{display:flex;gap:2rem;list-style:none;font-size:14px;color:var(--ink3);}
+.nav-links a{text-decoration:none;color:inherit;transition:color .15s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-right{display:flex;gap:.7rem;align-items:center;}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:500;transition:all .15s;text-decoration:none;border:none;white-space:nowrap;}
+.btn-sm{font-size:13px;padding:.5rem 1.1rem;}
+.btn-rose{background:var(--rose);color:#fff;}
+.btn-rose:hover{background:var(--rose-dk);}
+.page-hero{background:var(--cream);padding:4rem 5% 3rem;border-bottom:1px solid var(--border);}
+.page-hero-inner{max-width:800px;margin:0 auto;}
+.page-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--rose);font-weight:500;margin-bottom:.8rem;}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--ink);letter-spacing:-.3px;margin-bottom:.6rem;}
+.page-date{font-size:13px;color:var(--ink3);}
+.page-body{max-width:800px;margin:0 auto;padding:4rem 5%;}
+.page-body h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin:2.5rem 0 .8rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.page-body h2:first-child{margin-top:0;}
+.page-body h3{font-size:16px;font-weight:500;color:var(--ink);margin:1.5rem 0 .5rem;}
+.page-body p{font-size:15px;color:var(--ink2);line-height:1.8;margin-bottom:1rem;font-weight:300;}
+.page-body p strong{color:var(--ink);font-weight:500;}
+.page-body ul,.page-body ol{font-size:15px;color:var(--ink2);line-height:1.8;margin:0 0 1rem 1.5rem;font-weight:300;}
+.page-body ul li,.page-body ol li{margin-bottom:.4rem;}
+.page-body a{color:var(--rose);text-decoration:none;}
+.page-body a:hover{text-decoration:underline;}
+.highlight-box{background:var(--cream);border:1px solid var(--border);border-left:3px solid var(--rose);border-radius:8px;padding:1.2rem 1.4rem;margin:1.5rem 0;}
+.highlight-box p{margin:0;font-size:14px;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;}
+.contact-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;}
+.contact-card-icon{font-size:28px;margin-bottom:.8rem;}
+.contact-card h3{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:.3rem;}
+.contact-card p{font-size:13px;color:var(--ink3);margin:0;}
+.contact-card a{display:inline-block;margin-top:.8rem;font-size:13px;color:var(--rose);font-weight:500;}
+.faq-item{border-bottom:1px solid var(--border);padding:1.2rem 0;}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.faq-a{font-size:14px;color:var(--ink2);line-height:1.75;font-weight:300;display:none;}
+.faq-a.open{display:block;}
+.faq-arrow{font-size:18px;color:var(--ink3);transition:transform .2s;flex-shrink:0;}
+.faq-arrow.open{transform:rotate(180deg);}
+footer{background:var(--ink);border-top:1px solid #222;padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.foot-logo img{height:32px;width:auto;filter:invert(1);opacity:.4;}
+.foot-copy{font-size:12px;color:#555;}
+.foot-links{display:flex;gap:1.5rem;font-size:12px;color:#555;flex-wrap:wrap;}
+.foot-links a{color:inherit;text-decoration:none;transition:color .15s;}
+.foot-links a:hover{color:#aaa;}
+@media(max-width:760px){.nav-links{display:none;}.contact-grid{grid-template-columns:1fr;}}
+
+.gallery-hero{background:var(--cream);padding:4rem 5% 3rem;border-bottom:1px solid var(--border);}
+.gallery-hero-inner{max-width:1100px;margin:0 auto;}
+.card-range{max-width:1100px;margin:0 auto;padding:5rem 5%;border-bottom:1px solid var(--border);}
+.card-range:last-of-type{border-bottom:none;}
+.card-range-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;}
+.card-range-meta{flex:1;}
+.card-range-tag{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:500;padding:.3rem .8rem;border-radius:100px;margin-bottom:.8rem;}
+.card-range-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.3px;color:var(--ink);margin-bottom:.5rem;}
+.card-range-title em{font-style:italic;}
+.card-range-desc{font-size:15px;color:var(--ink2);font-weight:300;line-height:1.75;max-width:520px;}
+.card-spread{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+.card-panel{display:flex;flex-direction:column;gap:.8rem;}
+.card-panel-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink3);font-weight:500;}
+.card-img{width:100%;border-radius:14px;display:block;box-shadow:0 12px 40px rgba(0,0,0,.12);}
+.card-palette{display:flex;gap:.5rem;align-items:center;margin-top:.3rem;}
+.palette-dot{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.08);}
+.palette-label{font-size:12px;color:var(--ink3);}
+.occasions-pill{display:inline-flex;align-items:center;gap:.4rem;background:var(--cream);border:1px solid var(--border);border-radius:100px;padding:.3rem .9rem;font-size:12px;color:var(--ink2);margin:.2rem;}
+.guarantee-bar{background:var(--ink);color:#fff;padding:2.5rem 5%;text-align:center;}
+.guarantee-bar-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;}
+.guarantee-item{display:flex;align-items:center;gap:.6rem;font-size:14px;color:#aaa;}
+.guarantee-item span.g{color:#6FCF97;font-weight:700;font-size:16px;}
+.final-gallery-cta{background:var(--rose);padding:4rem 5%;text-align:center;}
+.final-gallery-cta h2{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#fff;margin-bottom:.5rem;}
+.final-gallery-cta p{font-size:15px;color:rgba(255,255,255,.75);font-weight:300;margin-bottom:2rem;}
+@media(max-width:700px){.card-spread{grid-template-columns:1fr;}.card-range-header{flex-direction:column;}.guarantee-bar-inner{flex-direction:column;gap:1.2rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html"><div class="logo"><img src="missless_logo_color.png" alt="Missless"/></div></a>
+  <ul class="nav-links">
+    <li><a href="index.html" title="Home" style="display:flex;align-items:center;color:var(--ink3);transition:color .15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink3)'"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a></li>
+    <li><a href="index.html#why">Why Missless</a></li>
+    <li><a href="cards.html" style="color:var(--rose);font-weight:500;">The Cards</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="corporate.html" class="btn btn-outline btn-sm" style="font-size:13px;padding:.5rem 1.1rem;">For Business</a>
+    <a href="index.html#pricing" class="btn btn-rose btn-sm">Get Started →</a>
+  </div>
+</nav>
+
+<div class="gallery-hero">
+  <div class="gallery-hero-inner">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--rose);font-weight:500;margin-bottom:.8rem;">The Card Range</div>
+    <div style="font-family:'Playfair Display',serif;font-size:clamp(30px,4.5vw,52px);font-weight:700;letter-spacing:-.3px;color:var(--ink);margin-bottom:.6rem;">Cards worth <em style="font-style:italic;">keeping.</em></div>
+    <p style="font-size:16px;color:var(--ink2);font-weight:300;line-height:1.75;max-width:560px;margin-bottom:1.5rem;">Four distinct ranges, each designed for the occasion. Printed at 300dpi on premium card stock and posted directly to your recipient — AU postage always included.</p>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <a href="#mothers-day" style="background:#FDF0F2;color:#B83040;border-radius:100px;padding:.4rem 1rem;font-size:13px;font-weight:500;text-decoration:none;">Mother's Day</a>
+      <a href="#birthday" style="background:#FFF4E6;color:#C06020;border-radius:100px;padding:.4rem 1rem;font-size:13px;font-weight:500;text-decoration:none;">Birthday</a>
+      <a href="#anniversary" style="background:#FDF0F5;color:#800040;border-radius:100px;padding:.4rem 1rem;font-size:13px;font-weight:500;text-decoration:none;">Anniversary</a>
+      <a href="#fathers-day" style="background:#EBF0F8;color:#2A3860;border-radius:100px;padding:.4rem 1rem;font-size:13px;font-weight:500;text-decoration:none;">Father's Day</a>
+      <a href="#christmas" style="background:#EBF5EF;color:#2A5A2A;border-radius:100px;padding:.4rem 1rem;font-size:13px;font-weight:500;text-decoration:none;">Christmas</a>
+    </div>
+  </div>
+</div>
+
+<div id="mothers-day"></div>
+<div id="birthday" style="scroll-margin-top:80px;"></div>
+<div id="anniversary" style="scroll-margin-top:80px;"></div>
+<div id="fathers-day" style="scroll-margin-top:80px;"></div>
+<div id="christmas" style="scroll-margin-top:80px;"></div>
+
+
+<div class="card-range" style="background:#FFF6EE;">
+  <div class="card-range-header">
+    <div class="card-range-meta">
+      <div class="card-range-tag" style="background:#FDF0F2;color:#B83040;">Mother's Day</div>
+      <div class="card-range-title">Happy <em>Mother's Day</em></div>
+      <p class="card-range-desc">Soft blush pinks, mauve florals and warm cream tones. Elegant and heartfelt — designed to make Mum feel truly seen. A timeless design that's as warm as she is.</p>
+      <div style="margin-top:1rem;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink3);font-weight:500;margin-bottom:.5rem;">Suits these occasions</div>
+        <div><span class="occasions-pill">✓ Mother's Day</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card-spread">
+    <div class="card-panel">
+      <div class="card-panel-label">Outside cover</div>
+      <img src="mothers_day_card_cover.png" alt="Mother's Day card cover" class="card-img"/>
+      <div class="card-palette">
+        <div class="palette-dot" style="background:#F2A0A0;"></div><div class="palette-dot" style="background:#C39BD2;"></div><div class="palette-dot" style="background:#FFCCA0;"></div><div class="palette-dot" style="background:#E8C4B8;"></div>
+        <span class="palette-label">Blush · Mauve · Peach · Cream</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="card-panel-label">Inside message</div>
+      <img src="mothers_day_card_inside.png" alt="Mother's Day card inside" class="card-img"/>
+      <p style="font-size:12px;color:var(--ink3);line-height:1.6;margin-top:.3rem;">Message shown is an example. Write your own or let us craft something personal — at no extra charge.</p>
+    </div>
+  </div>
+</div>
+<div class="card-range" style="background:#FFF9F0;">
+  <div class="card-range-header">
+    <div class="card-range-meta">
+      <div class="card-range-tag" style="background:#FFF4E6;color:#C06020;">Birthday</div>
+      <div class="card-range-title">Happy <em>Birthday</em></div>
+      <p class="card-range-desc">Warm gold and coral florals with soft peach tones — joyful, vibrant and celebratory. Designed to feel like a proper birthday card, not an afterthought.</p>
+      <div style="margin-top:1rem;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink3);font-weight:500;margin-bottom:.5rem;">Suits these occasions</div>
+        <div><span class="occasions-pill">✓ Birthday</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card-spread">
+    <div class="card-panel">
+      <div class="card-panel-label">Outside cover</div>
+      <img src="birthday_card_cover.png" alt="Birthday card cover" class="card-img"/>
+      <div class="card-palette">
+        <div class="palette-dot" style="background:#E6B450;"></div><div class="palette-dot" style="background:#F07858;"></div><div class="palette-dot" style="background:#FFC896;"></div><div class="palette-dot" style="background:#A8C878;"></div>
+        <span class="palette-label">Gold · Coral · Peach · Sage</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="card-panel-label">Inside message</div>
+      <img src="birthday_card_inside.png" alt="Birthday card inside" class="card-img"/>
+      <p style="font-size:12px;color:var(--ink3);line-height:1.6;margin-top:.3rem;">Message shown is an example. Write your own or let us craft something personal — at no extra charge.</p>
+    </div>
+  </div>
+</div>
+<div class="card-range" style="background:#FFF5F8;">
+  <div class="card-range-header">
+    <div class="card-range-meta">
+      <div class="card-range-tag" style="background:#FDF0F5;color:#800040;">Anniversary</div>
+      <div class="card-range-title">Happy <em>Anniversary</em></div>
+      <p class="card-range-desc">Deep burgundy and plum with soft blush accents — romantic, rich and timeless. Perfect for couples who deserve more than a text message.</p>
+      <div style="margin-top:1rem;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink3);font-weight:500;margin-bottom:.5rem;">Suits these occasions</div>
+        <div><span class="occasions-pill">✓ Anniversary</span><span class="occasions-pill">✓ Wedding</span><span class="occasions-pill">✓ Valentine's Day</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card-spread">
+    <div class="card-panel">
+      <div class="card-panel-label">Outside cover</div>
+      <img src="anniversary_card_cover.png" alt="Anniversary card cover" class="card-img"/>
+      <div class="card-palette">
+        <div class="palette-dot" style="background:#A02850;"></div><div class="palette-dot" style="background:#9650A0;"></div><div class="palette-dot" style="background:#F0B4C8;"></div><div class="palette-dot" style="background:#6A8AAA;"></div>
+        <span class="palette-label">Burgundy · Plum · Blush · Slate</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="card-panel-label">Inside message</div>
+      <img src="anniversary_card_inside.png" alt="Anniversary card inside" class="card-img"/>
+      <p style="font-size:12px;color:var(--ink3);line-height:1.6;margin-top:.3rem;">Message shown is an example. Write your own or let us craft something personal — at no extra charge.</p>
+    </div>
+  </div>
+</div>
+<div class="card-range" style="background:#F5F7FA;" id="fathers-day-card">
+  <div class="card-range-header">
+    <div class="card-range-meta">
+      <div class="card-range-tag" style="background:#EBF0F8;color:#2A3860;">Father's Day</div>
+      <div class="card-range-title">Happy <em>Father's Day</em></div>
+      <p class="card-range-desc">Navy, forest green and warm amber — refined, warm and distinctly his. A card that feels as solid and dependable as he is. Because Dad deserves more than a last-minute text.</p>
+      <div style="margin-top:1rem;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink3);font-weight:500;margin-bottom:.5rem;">Suits these occasions</div>
+        <div><span class="occasions-pill">✓ Father's Day</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card-spread">
+    <div class="card-panel">
+      <div class="card-panel-label">Outside Cover</div>
+      <img src="fathers_day_card_cover.png" alt="Father's Day card cover" class="card-img"/>
+      <div class="card-palette">
+        <div class="palette-dot" style="background:#2D4B82;border:1px solid rgba(0,0,0,.08);"></div>
+        <div class="palette-dot" style="background:#376941;border:1px solid rgba(0,0,0,.08);"></div>
+        <div class="palette-dot" style="background:#C89B3C;border:1px solid rgba(0,0,0,.08);"></div>
+        <div class="palette-dot" style="background:#6482A0;border:1px solid rgba(0,0,0,.08);"></div>
+        <span class="palette-label">Navy · Forest · Amber · Slate</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="card-panel-label">Inside Message</div>
+      <img src="fathers_day_card_inside.png" alt="Father's Day card inside" class="card-img"/>
+      <p style="font-size:12px;color:var(--ink3);line-height:1.6;margin-top:.3rem;">Message shown is an example. Write your own or let us craft something personal — at no extra charge.</p>
+    </div>
+  </div>
+</div>
+<div class="card-range" style="background:#F8FBF8;">
+  <div class="card-range-header">
+    <div class="card-range-meta">
+      <div class="card-range-tag" style="background:#EBF5EF;color:#2A5A2A;">Christmas</div>
+      <div class="card-range-title">Merry <em>Christmas</em></div>
+      <p class="card-range-desc">Deep forest green, holly clusters and snowflakes with cranberry red accents. Festive, warm and beautifully traditional — the card people actually keep.</p>
+      <div style="margin-top:1rem;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink3);font-weight:500;margin-bottom:.5rem;">Suits these occasions</div>
+        <div><span class="occasions-pill">✓ Christmas</span><span class="occasions-pill">✓ New Year</span><span class="occasions-pill">✓ Festive Season</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card-spread">
+    <div class="card-panel">
+      <div class="card-panel-label">Outside cover</div>
+      <img src="christmas_card_cover.png" alt="Christmas card cover" class="card-img"/>
+      <div class="card-palette">
+        <div class="palette-dot" style="background:#2D6428;"></div><div class="palette-dot" style="background:#B42837;"></div><div class="palette-dot" style="background:#D2AA50;"></div><div class="palette-dot" style="background:#C8DCE6;"></div>
+        <span class="palette-label">Forest · Cranberry · Gold · Ice</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="card-panel-label">Inside message</div>
+      <img src="christmas_card_inside.png" alt="Christmas card inside" class="card-img"/>
+      <p style="font-size:12px;color:var(--ink3);line-height:1.6;margin-top:.3rem;">Message shown is an example. Write your own or let us craft something personal — at no extra charge.</p>
+    </div>
+  </div>
+</div>
+
+<div class="guarantee-bar">
+  <div class="guarantee-bar-inner">
+    <div class="guarantee-item"><span class="g">✓</span> New designs added every season</div>
+    <div class="guarantee-item"><span class="g">✓</span> No two recipients ever receive the same design in the same month</div>
+    <div class="guarantee-item"><span class="g">✓</span> 300dpi premium card stock</div>
+    <div class="guarantee-item"><span class="g">✓</span> AU postage always included</div>
+  </div>
+</div>
+
+<div class="final-gallery-cta">
+  <h2>Ready to get started?</h2>
+  <p>Choose a plan and set up your first occasion in under 2 minutes.</p>
+  <a href="index.html#pricing" class="btn btn-white" style="background:#fff;color:var(--rose);font-size:17px;padding:.95rem 2.4rem;border-radius:10px;font-weight:500;text-decoration:none;display:inline-block;">See Plans — From $19/month →</a>
+</div>
+
+<footer>
+  <div class="foot-logo"><img src="missless_logo_color.png" alt="Missless"/></div>
+  <div class="foot-copy">© 2026 Missless Pty Ltd · ABN XX XXX XXX XXX · missless.com.au</div>
+  <div class="foot-links">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="refunds.html">Refunds</a>
+    <a href="fair-use.html">Fair Use</a>
+    <a href="shipping.html">Shipping</a>
+    <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+</footer>
+</body></html>
