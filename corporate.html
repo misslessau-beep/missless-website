@@ -67,7 +67,27 @@ footer{background:var(--ink);border-top:1px solid #222;padding:2rem 5%;display:f
 .foot-links{display:flex;gap:1.5rem;font-size:12px;color:#555;flex-wrap:wrap;}
 .foot-links a{color:inherit;text-decoration:none;transition:color .15s;}
 .foot-links a:hover{color:#aaa;}
-@media(max-width:760px){.nav-links{display:none;}.logo img{height:44px;}.btn-sm{font-size:11px;padding:.35rem .7rem;}.nav-right{gap:.3rem;}nav{padding:0 4%;height:56px;}}.contact-grid{grid-template-columns:1fr;}}
+@media(max-width:760px){
+  .nav-links{display:none;}
+  .logo img{height:44px;width:auto;}
+  .btn-sm{font-size:11px;padding:.35rem .7rem;}
+  .nav-right{gap:.3rem;}
+  nav{padding:0 4%;height:56px;}
+  .for-business-btn{font-size:11px;padding:.35rem .7rem;}
+  .contact-grid{grid-template-columns:1fr;}
+  .corp-hero{padding:3rem 5% 2.5rem;}
+  .corp-hero-inner{grid-template-columns:1fr;gap:1.5rem;}
+  .corp-hero h1{font-size:32px;color:#fff;}
+  .corp-tagline{font-size:15px;color:#bbb;}
+  .corp-eyebrow{color:#E07080;}
+  .corp-stats{display:none;}
+  .use-cases{grid-template-columns:1fr;}
+  .how-corp{grid-template-columns:1fr 1fr;}
+  .corp-form-row{grid-template-columns:1fr;}
+  .testimonial-strip-inner{grid-template-columns:1fr;}
+  .guarantee-bar-inner{flex-direction:column;gap:.8rem;}
+  .corp-stats-grid{grid-template-columns:1fr 1fr;}
+}
 
 .corp-hero{background:var(--ink);padding:6rem 5% 5rem;position:relative;overflow:hidden;}
 .corp-hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(184,48,64,.18) 0%,transparent 65%);pointer-events:none;}
@@ -123,8 +143,8 @@ footer{background:var(--ink);border-top:1px solid #222;padding:2rem 5%;display:f
 </head>
 <body>
 
-<nav>
-  <a href="index.html"><div class="logo"><img src="missless_logo_color.png" alt="Missless" style="filter:invert(1);opacity:.85;height:52px;width:auto;max-width:200px;"/></div></a>
+<nav style="background:rgba(250,250,248,.96);border-bottom:1px solid #E5E0D8;">
+  <a href="index.html"><div class="logo"><img src="missless_logo_color.png" alt="Missless" style="height:52px;width:auto;max-width:200px;"/></div></a>
   <ul class="nav-links" style="color:#aaa;">
     <li><a href="index.html" style="color:#aaa;">← Back to Missless</a></li>
   </ul>
