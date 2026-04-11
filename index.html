@@ -447,10 +447,10 @@ function showCard(key) {
       <div class="plan feat">
         <div class="plan-pop">Most popular</div>
         <div class="plan-name">Family</div>
-        <div class="plan-price">$29</div>
+        <div class="plan-price">$39</div>
         <div class="plan-per">per month</div>
-        <div class="plan-val">$7.25 per card</div>
-        <p class="plan-desc">For the people who matter most. 4 cards included every month.</p>
+        <div class="plan-val">$9.75 per card</div>
+        <p class="plan-desc">For family and close friends. 4 cards included every month.</p>
         <ul class="plan-feats">
           <li><span class="ft">✓</span> 4 cards per month</li>
           <li><span class="ft">✓</span> AU postage included</li>
@@ -461,19 +461,19 @@ function showCard(key) {
         <button class="btn" style="width:100%;padding:.75rem;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:500;background:#fff;color:var(--ink);border:none;cursor:pointer;transition:all .15s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='#fff';" onclick="window.location.href='family.html'">Get Started →</button>
       </div>
       <div class="plan">
-        <div class="plan-name">Unlimited</div>
-        <div class="plan-price">$49</div>
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">$69</div>
         <div class="plan-per">per month</div>
-        <div class="plan-val">Unlimited cards*</div>
-        <p class="plan-desc">Never think about it again. Unlimited cards for everyone you love.</p>
+        <div class="plan-val">Premium cards*</div>
+        <p class="plan-desc">Never think about it again. Premium cards for everyone you love.</p>
         <ul class="plan-feats">
-          <li><span class="ft">✓</span> Unlimited cards*</li>
+          <li><span class="ft">✓</span> Premium cards*</li>
           <li><span class="ft">✓</span> AU postage included</li>
           <li><span class="ft">✓</span> All card designs</li>
           <li><span class="ft">✓</span> Custom messages</li>
           <li><span class="fp">+</span> Intl delivery $5.99/card</li>
         </ul>
-        <button class="btn" style="width:100%;padding:.75rem;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:500;background:var(--ink);color:#fff;border:none;cursor:pointer;transition:all .15s;" onmouseover="this.style.background='#2a2a2a'" onmouseout="this.style.background='var(--ink)';" onclick="window.location.href='unlimited.html'">Get Started →</button>
+        <button class="btn" style="width:100%;padding:.75rem;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:500;background:var(--ink);color:#fff;border:none;cursor:pointer;transition:all .15s;" onmouseover="this.style.background='#2a2a2a'" onmouseout="this.style.background='var(--ink)';" onclick="window.location.href='premium.html'">Get Started →</button>
       </div>
       <div class="plan" style="border-style:dashed;">
         <div class="plan-name">Pay per card</div>
@@ -492,8 +492,8 @@ function showCard(key) {
       </div>
     </div>
     <div class="pricing-foot">
-      <strong>International delivery:</strong> Add $5.99 per card for delivery outside Australia — available on all plans including Unlimited. &nbsp;·&nbsp;
-      <strong>*Fair use policy:</strong> Unlimited plans are subject to a fair use limit of 20 cards per month. This affects fewer than 1% of customers.
+      <strong>International delivery:</strong> Add $5.99 per card for delivery outside Australia — available on all plans including Premium. &nbsp;·&nbsp;
+      <strong></strong> Premium plans are subject to a fair use limit of 20 cards per month. This affects fewer than 1% of customers.
     </div>
   </div>
 </section>
@@ -572,7 +572,7 @@ function showCard(key) {
 var STRIPE={
   essential:'https://buy.stripe.com/8x228sbOh6aQfsGfWC9k400',
   family:'https://buy.stripe.com/6oUfZi19D1UA4O24dU9k401',
-  unlimited:'https://buy.stripe.com/00waEY9G98iYgwKaCi9k402',
+  premium:'https://buy.stripe.com/00waEY9G98iYgwKaCi9k402',
   payg:'https://buy.stripe.com/14A7sM7y1fLqfsGeSy9k403'
 };
 function pay(p){if(STRIPE[p])window.location.href=STRIPE[p];}
