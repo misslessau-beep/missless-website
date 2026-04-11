@@ -458,7 +458,7 @@ function showCard(key) {
           <li><span class="ft">✓</span> Custom messages</li>
           <li><span class="fp" style="color:#555;">+</span> Intl delivery $5.99/card</li>
         </ul>
-        <button class="btn" style="width:100%;padding:.75rem;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:500;background:#fff;color:var(--ink);border:none;cursor:pointer;transition:all .15s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='#fff';" onclick="window.location.href='family.html'">Get Started →</button>
+        <button class="btn" style="width:100%;padding:.75rem;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:500;background:#fff;color:var(--ink);border:none;cursor:pointer;transition:all .15s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='#fff';" onclick="window.location.href='value.html'">Get Started →</button>
       </div>
       <div class="plan">
         <div class="plan-name">Family</div>
@@ -477,7 +477,7 @@ function showCard(key) {
       </div>
       <div class="plan" style="border-style:dashed;">
         <div class="plan-name">Pay per card</div>
-        <div class="plan-price" style="font-size:34px;">$19<span style="font-size:18px;color:var(--ink3)">.99</span></div>
+        <div class="plan-price" style="font-size:34px;">$24</div>
         <div class="plan-per">per card · no subscription</div>
         <div class="plan-val" style="background:#f5f5f5;color:var(--ink3);">No commitment</div>
         <p class="plan-desc">Just need one card? Pay as you go with no subscription required.</p>
@@ -591,9 +591,9 @@ function showCard(key) {
 <script>
 var STRIPE={
   essential:'https://buy.stripe.com/8x228sbOh6aQfsGfWC9k400',
-  family:'https://buy.stripe.com/5kQ5kEdWp2YEeoCeSy9k405',
-  premium:'https://buy.stripe.com/28EeVe9G91UA94i5hY9k404',
-  payg:'https://buy.stripe.com/14A7sM7y1fLqfsGeSy9k403'
+  family:'https://buy.stripe.com/eVq8wQ19D7eU1BQh0G9k407',
+  premium:'https://buy.stripe.com/28EeVeaKdar63JY25M9k408',
+  payg:'https://buy.stripe.com/9B6aEY05z42I3JY8ua9k406'
 };
 function pay(p){if(STRIPE[p])window.location.href=STRIPE[p];}
 function go(id){var el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth'});}
